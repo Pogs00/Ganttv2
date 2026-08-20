@@ -1,0 +1,32 @@
+{
+  "activeId": "proj_27o8ye4",
+  "projects": [
+    {
+      "id": "proj_27o8ye4",
+      "name": "Default Project",
+      "items": []
+    }
+  ],
+  "statuses": [
+    {
+      "id": "not-started",
+      "name": "Not started",
+      "color": "#8CA0B3"
+    },
+    {
+      "id": "in-progress",
+      "name": "In progress",
+      "color": "#6FC3E8"
+    },
+    {
+      "id": "completed",
+      "name": "Completed",
+      "color": "#4E9A72"
+    },
+    {
+      "id": "delayed",
+      "name": "Delayed",
+      "color": "#D8564F"
+    }
+  ]
+}
