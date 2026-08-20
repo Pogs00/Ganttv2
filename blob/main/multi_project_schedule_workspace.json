@@ -51,7 +51,10 @@
           "revisedEnd": "",
           "status": "not-started",
           "notes": "",
-          "progress": 0
+          "progress": 0,
+          "resources": [
+            "aaaaaa"
+          ]
         },
         {
           "id": "it_ez9sxtb",
