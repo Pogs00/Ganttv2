@@ -332,7 +332,32 @@
     {
       "id": "proj_bc9sc91",
       "name": "Aloha Standardization",
-      "items": []
+      "items": [
+        {
+          "id": "it_6k1y48w",
+          "type": "milestone",
+          "parentId": "",
+          "name": "Week 1: Baseline Lock, NCR Coordination & Initial Audit",
+          "start": "",
+          "end": "",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "progress": 0
+        },
+        {
+          "id": "it_puvulya",
+          "type": "milestone",
+          "parentId": "",
+          "name": "Week 2: Legacy Compatibility & Accelerated Pilot",
+          "start": "",
+          "end": "",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "progress": 0
+        }
+      ]
     }
   ],
   "statuses": [
