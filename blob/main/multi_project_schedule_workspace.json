@@ -1,5 +1,5 @@
 {
-  "activeId": "proj_wnz0v18",
+  "activeId": "proj_dnhltbp",
   "projects": [
     {
       "id": "proj_ghze588",
@@ -328,6 +328,11 @@
           "notes": ""
         }
       ]
+    },
+    {
+      "id": "proj_dnhltbp",
+      "name": "New Project",
+      "items": []
     }
   ],
   "statuses": [
