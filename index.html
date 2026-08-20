@@ -1,0 +1,1673 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Site Schedule — Multi-Project Workspace</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Big+Shoulders+Display:wght@600;700;800&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --blue-deep:#0A2540;
+    --blue-panel:#0F3157;
+    --blue-panel-2:#123A63;
+    --grid-line:rgba(160,205,235,0.16);
+    --grid-line-strong:rgba(160,205,235,0.30);
+    --cyan:#6FC3E8;
+    --paper:#ECE9DE;
+    --paper-2:#F6F4EB;
+    --ink:#152233;
+    --ink-soft:#4C5A6B;
+    --amber:#E3A23A;
+    --green:#4E9A72;
+    --red:#D8564F;
+    --slate:#8CA0B3;
+    --border:#D9D4C3;
+    --radius:10px;
+    --shadow:0 1px 2px rgba(10,37,64,0.06), 0 10px 28px rgba(10,37,64,0.10);
+  }
+  *{box-sizing:border-box;}
+  html,body{margin:0;padding:0;}
+  body{
+    background:var(--paper);
+    color:var(--ink);
+    font-family:'Inter',system-ui,sans-serif;
+    min-height:100vh;
+    -webkit-font-smoothing:antialiased;
+  }
+  .display{font-family:'Big Shoulders Display',sans-serif; text-transform:uppercase;}
+  .mono{font-family:'IBM Plex Mono',monospace;}
+
+  .shell{ max-width:1320px; margin:0 auto; padding:26px 24px 70px; }
+
+  /* ---------- project selector header bar ---------- */
+  .project-bar{
+    display:flex;
+    align-items:center;
+    gap:12px;
+    background:#DFDCBDB8;
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    padding:12px 18px;
+    margin-bottom:18px;
+    flex-wrap:wrap;
+  }
+  .project-bar label{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:.08em;
+    text-transform:uppercase;
+    color:var(--ink-soft);
+    font-weight:600;
+  }
+  .project-select{
+    font-family:'Inter',sans-serif;
+    font-size:13.5px;
+    font-weight:600;
+    padding:7px 12px;
+    border-radius:7px;
+    border:1px solid var(--border);
+    background:#fff;
+    color:var(--ink);
+    min-width:220px;
+  }
+
+  /* ---------- title block ---------- */
+  .titleblock{
+    display:flex;
+    align-items:flex-end;
+    justify-content:space-between;
+    gap:20px;
+    background:var(--blue-deep);
+    color:var(--paper-2);
+    border-radius:var(--radius);
+    padding:22px 26px;
+    margin-bottom:18px;
+    box-shadow:var(--shadow);
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size:24px 24px;
+    position:relative;
+    overflow:hidden;
+  }
+  .titleblock::after{
+    content:"";
+    position:absolute; inset:0;
+    background:linear-gradient(120deg, rgba(10,37,64,0.55), rgba(10,37,64,0.05) 55%);
+    pointer-events:none;
+  }
+  .titleblock-left{ 
+    position:relative; 
+    z-index:1; 
+    flex:1; 
+    min-width:0;
+  }
+  .eyebrow{
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    letter-spacing:.14em;
+    text-transform:uppercase;
+    color:var(--cyan);
+    margin:0 0 6px;
+  }
+  .titleblock-sub{
+    font-size:12.5px;
+    color:rgba(236,233,222,0.7);
+    margin-top:8px;
+  }
+  .project-name-input{
+    background:transparent;
+    border:none;
+    border-bottom:1px dashed rgba(236,233,222,0.4);
+    color:var(--paper-2);
+    font-family:'Big Shoulders Display',sans-serif;
+    font-weight:800;
+    text-transform:uppercase;
+    font-size:34px;
+    padding:0 2px 2px;
+    width:100%;
+    outline:none;
+  }
+  .project-name-input:focus{ border-bottom-color:var(--cyan); }
+  .titleblock-right{
+    position:relative; z-index:1;
+    display:grid;
+    grid-template-columns:auto auto;
+    gap:4px 18px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:11px;
+    color:rgba(236,233,222,0.75);
+    text-align:right;
+    flex-shrink:0;
+  }
+  .titleblock-right .k{ text-transform:uppercase; letter-spacing:.08em; color:var(--cyan); }
+  .titleblock-right .v{ color:var(--paper-2); }
+
+  /* ---------- toolbar ---------- */
+  .toolbar{
+    display:flex;
+    align-items:center;
+    gap:10px;
+    margin-bottom:16px;
+    flex-wrap:wrap;
+  }
+  .btn{
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:13px;
+    padding:9px 16px;
+    border-radius:8px;
+    border:1px solid var(--border);
+    background:var(--paper-2);
+    color:var(--ink);
+    cursor:pointer;
+    transition:background .12s ease, border-color .12s ease, transform .05s ease;
+  }
+  .btn:hover{ background:#fff; border-color:#C6C0AA; }
+  .btn:active{ transform:translateY(1px); }
+  .btn.primary{ background:var(--blue-deep); border-color:var(--blue-deep); color:#fff; }
+  .btn.primary:hover{ background:#0D3160; }
+  .btn.amber{ background:var(--amber); border-color:var(--amber); color:#3A2600; }
+  .btn.amber:hover{ background:#D6952F; }
+  .btn.ghost{ background:transparent; }
+  .btn.small{ padding:5px 10px; font-size:12px; border-radius:6px; }
+  .btn.danger-outline{ color:var(--red); border-color:#EAC3C1; }
+  .btn.danger-outline:hover{ background:#FCECEB; }
+  .spacer{ flex:1; }
+
+  /* ---------- form panel ---------- */
+  .panel{
+    background:var(--paper-2);
+    border:1px solid var(--border);
+    border-radius:var(--radius);
+    box-shadow:var(--shadow);
+    margin-bottom:18px;
+    overflow:hidden;
+  }
+  .form-panel{ display:none; padding:20px 22px 22px; }
+  .form-panel.open{ display:block; }
+  .form-head{
+    display:flex; align-items:center; justify-content:space-between;
+    margin-bottom:16px;
+  }
+  .form-head h3{ margin:0; font-family:'Big Shoulders Display',sans-serif; font-size:20px; text-transform:uppercase; letter-spacing:.02em; }
+  .type-toggle{ display:inline-flex; border:1px solid var(--border); border-radius:8px; overflow:hidden; }
+  .type-toggle button{
+    font-family:'Inter',sans-serif; font-weight:600; font-size:12.5px;
+    padding:7px 14px; border:none; background:var(--paper-2); color:var(--ink-soft); cursor:pointer;
+  }
+  .type-toggle button.active{ background:var(--blue-deep); color:#fff; }
+
+  .form-grid{ display:grid; grid-template-columns:2fr 1fr 1fr 1fr; gap:14px; }
+  .field label{
+    display:block; font-size:11px; font-weight:600; text-transform:uppercase; letter-spacing:.05em;
+    color:var(--ink-soft); margin-bottom:5px;
+  }
+  .field input, .field select, .field textarea{
+    width:100%; font-family:'Inter',sans-serif; font-size:13.5px;
+    padding:9px 10px; border-radius:7px; border:1px solid var(--border);
+    background:#fff; color:var(--ink);
+  }
+  .field input:focus, .field select:focus, .field textarea:focus{ outline:2px solid var(--cyan); outline-offset:0; border-color:var(--cyan); }
+  .field input:disabled{ background:#F0ECE1; color:var(--ink-soft); cursor:not-allowed; }
+  .revised-field input{ border-color:#E3B9B7; }
+  .revised-hint{ font-size:11px; color:var(--ink-soft); margin-top:5px; font-style:italic; }
+  .form-actions{ display:flex; gap:10px; margin-top:16px; justify-content:flex-end; }
+  .full-row{ grid-column:1 / -1; }
+
+  /* ---------- Modal Overlay ---------- */
+  .modal-overlay {
+    position: fixed; inset: 0; background: rgba(10,37,64,0.6);
+    display: none; align-items: center; justify-content: center; z-index: 100;
+    padding: 20px;
+  }
+  .modal-overlay.open { display: flex; }
+  .modal-card {
+    background: var(--paper-2); border: 1px solid var(--border);
+    border-radius: var(--radius); width: 100%; max-width: 580px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.25); overflow: hidden;
+  }
+  .modal-header {
+    background: var(--blue-deep); color: #fff; padding: 16px 20px;
+    display: flex; align-items: center; justify-content: space-between;
+  }
+  .modal-header h3 { margin: 0; font-family:'Big Shoulders Display',sans-serif; font-size:20px; text-transform:uppercase; }
+  .modal-body { padding: 20px; }
+  .status-mgmt-list { display: flex; flex-direction: column; gap: 8px; max-height: 260px; overflow-y: auto; margin-bottom: 16px; }
+  .status-mgmt-item {
+    display: flex; align-items: center; gap: 10px; background: #fff;
+    padding: 8px 12px; border-radius: 8px; border: 1px solid var(--border);
+  }
+  .status-mgmt-item input[type="text"] { flex: 1; padding: 5px 8px; font-size: 13px; border: 1px solid var(--border); border-radius: 5px; }
+  .status-mgmt-item input[type="color"] { width: 36px; height: 30px; border: none; background: none; cursor: pointer; }
+  .status-mgmt-add {
+    background: #fff; padding: 12px; border-radius: 8px; border: 1px dashed var(--border);
+    display: flex; gap: 10px; align-items: center;
+  }
+
+  /* ---------- table ---------- */
+  .list-panel{ padding:0; }
+  table{ width:100%; border-collapse:collapse; font-size:13px; }
+  thead th{
+    text-align:left; font-size:10.5px; text-transform:uppercase; letter-spacing:.05em;
+    color:var(--ink-soft); padding:11px 14px; border-bottom:1px solid var(--border);
+    background:#F1EEE2;
+  }
+  tbody td{ padding:11px 14px; border-bottom:1px solid var(--border); vertical-align:top; }
+  tbody tr:last-child td{ border-bottom:none; }
+  tbody tr:hover{ background:#F8F6EE; }
+  .name-cell{ font-weight:600; }
+  .subtask-row td { background:#FAF8F3; padding-left:36px; }
+  .subtask-row:hover td { background:#F3EFE3; }
+  .type-pill{
+    display:inline-block; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.04em;
+    padding:2px 7px; border-radius:5px; margin-right:6px;
+  }
+  .type-pill.task{ background:#E4EEF6; color:#2A5C82; }
+  .type-pill.milestone{ background:#FBEBD3; color:#8A5A00; }
+  
+  .status-pill{
+    display:inline-flex; align-items:center; gap:5px; font-size:11.5px; font-weight:600;
+    padding:3px 9px; border-radius:20px;
+  }
+  .status-pill .dot{ width:7px; height:7px; border-radius:50%; }
+
+  .inline-status-select {
+    font-family: 'Inter', sans-serif;
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 3px 8px;
+    border-radius: 20px;
+    border: 1px solid var(--border);
+    outline: none;
+    cursor: pointer;
+  }
+
+  .revise-note{ font-size:11.5px; color:var(--red); margin-top:3px; }
+  .date-cell{ font-family:'IBM Plex Mono',monospace; font-size:12px; white-space:nowrap; }
+  .actions-cell{ white-space:nowrap; text-align:right; }
+  .actions-cell button{ margin-left:6px; }
+  .empty-row td{ text-align:center; color:var(--ink-soft); font-style:italic; padding:26px; }
+
+  /* ---------- gantt ---------- */
+  .gantt-panel{ padding:18px 18px 22px; }
+  .gantt-head{ display:flex; align-items:center; justify-content:space-between; margin-bottom:14px; flex-wrap:wrap; gap:12px; }
+  .gantt-head h3{ margin:0; font-family:'Big Shoulders Display',sans-serif; font-size:20px; text-transform:uppercase; letter-spacing:.02em; }
+  .legend{ display:flex; gap:14px; flex-wrap:wrap; font-size:11.5px; color:var(--ink-soft); }
+  .legend span{ display:inline-flex; align-items:center; gap:6px; }
+  .legend .sw{ width:12px; height:12px; border-radius:3px; display:inline-block; }
+  .legend .diamond{ width:10px; height:10px; transform:rotate(45deg); display:inline-block; }
+
+  .zoom-controls {
+    display: flex;
+    align-items: center;
+    gap: 4px;
+    background: #E4E0D1;
+    padding: 3px;
+    border-radius: 7px;
+    border: 1px solid var(--border);
+  }
+  .zoom-btn {
+    font-family: 'IBM Plex Mono', monospace;
+    font-weight: 600;
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 5px;
+    border: none;
+    background: transparent;
+    color: var(--ink-soft);
+    cursor: pointer;
+    transition: background .12s ease, color .12s ease;
+  }
+  .zoom-btn:hover { color: var(--ink); background: rgba(255,255,255,0.5); }
+  .zoom-btn.active {
+    background: var(--blue-deep);
+    color: #fff;
+    box-shadow: 0 1px 2px rgba(0,0,0,0.15);
+  }
+
+  .gantt-scroll{
+    overflow-x:auto;
+    border-radius:8px;
+    border:1px solid var(--blue-deep);
+  }
+  .gantt-canvas{
+    position:relative;
+    background:var(--blue-deep);
+    background-image:
+      linear-gradient(var(--grid-line) 1px, transparent 1px),
+      linear-gradient(90deg, var(--grid-line) 1px, transparent 1px);
+    background-size:32px 34px;
+  }
+  .gantt-ruler{
+    position:sticky; top:0; z-index:3;
+    height:38px;
+    background:var(--blue-panel);
+    border-bottom:1px solid var(--grid-line-strong);
+    position:relative;
+  }
+  .ruler-tick{
+    position:absolute; top:0; bottom:0;
+    border-left:1px solid var(--grid-line-strong);
+    display:flex; align-items:center;
+    padding-left:6px;
+    font-family:'IBM Plex Mono',monospace;
+    font-size:10.5px;
+    color:var(--cyan);
+    white-space:nowrap;
+  }
+  .today-line{
+    position:absolute; top:0; bottom:0; width:2px;
+    background:var(--amber);
+    z-index:2;
+  }
+  .today-flag{
+    position:absolute; top:38px; transform:translateX(-50%);
+    font-family:'IBM Plex Mono',monospace; font-size:9.5px; color:#3A2600;
+    background:var(--amber); padding:1px 5px; border-radius:4px; white-space:nowrap;
+  }
+  .gantt-rows{ position:relative; }
+  .gantt-row{
+    position:relative;
+    height:36px;
+    border-bottom:1px solid var(--grid-line);
+  }
+  .gantt-row.subtask-row-gantt {
+    background: rgba(15, 49, 87, 0.35);
+  }
+  .row-label{
+    position:sticky; left:0; z-index:2;
+    display:inline-block;
+    background:var(--blue-panel-2);
+    color:var(--paper-2);
+    font-size:12px;
+    font-weight:600;
+    padding:8px 12px;
+    border-right:1px solid var(--grid-line-strong);
+    max-width:220px;
+    overflow:hidden;
+    text-overflow:ellipsis;
+    white-space:nowrap;
+    height:36px;
+    box-sizing:border-box;
+  }
+  .subtask-row-gantt .row-label {
+    padding-left: 28px;
+    font-size: 11.5px;
+    font-weight: 400;
+    background: #143E6B;
+  }
+  .gantt-bar{
+    position:absolute; top:8px; height:18px;
+    border-radius:5px;
+    display:flex; align-items:center;
+    padding:0 8px;
+    font-size:11px; font-weight:600; color:#fff;
+    white-space:nowrap; overflow:hidden;
+    box-shadow:0 1px 2px rgba(0,0,0,0.25);
+  }
+  .gantt-slip{
+    position:absolute; top:8px; height:18px;
+    background:repeating-linear-gradient(135deg, rgba(216,86,79,0.9), rgba(216,86,79,0.9) 4px, rgba(255,255,255,0.35) 4px, rgba(255,255,255,0.35) 8px);
+    border-radius:0 5px 5px 0;
+  }
+  .rev-flag{
+    position:absolute; top:-2px; transform:translateX(-50%);
+    font-family:'IBM Plex Mono',monospace; font-size:9px; font-weight:700; color:#fff;
+    background:var(--red); padding:1px 4px; border-radius:3px; white-space:nowrap;
+    box-shadow:0 1px 2px rgba(0,0,0,0.3);
+  }
+  .gantt-diamond{
+    position:absolute; top:9px; width:16px; height:16px;
+    transform:translateX(-50%) rotate(45deg);
+    border-radius:3px;
+    box-shadow:0 1px 2px rgba(0,0,0,0.3);
+  }
+  .gantt-ms-label{
+    position:absolute; top:6px; transform:translateX(6px);
+    font-family:'IBM Plex Mono',monospace; font-size:10.5px; color:var(--paper-2);
+    white-space:nowrap;
+  }
+  .gantt-empty{ padding:40px; text-align:center; color:rgba(236,233,222,0.6); font-size:13px; }
+  .hint{ font-size:12px; color:var(--ink-soft); margin:0 0 16px; }
+
+  @media print {
+    body { background: #fff; color: #000; }
+    .project-bar, .toolbar, .form-panel, .actions-cell, .btn, .zoom-controls { display: none !important; }
+    .shell { max-width: 100%; padding: 0; margin: 0; }
+    .titleblock { background: #0A2540 !important; color: #fff !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+    .panel { box-shadow: none; border: 1px solid #ccc; break-inside: avoid; }
+    .gantt-scroll { overflow: visible !important; border: none; }
+    .gantt-canvas { background: #0A2540 !important; -webkit-print-color-adjust: exact; print-color-adjust: exact; }
+  }
+</style>
+</head>
+<body>
+<div class="shell">
+
+  <!-- Project Selector Bar -->
+  <div class="project-bar">
+    <label for="projectSelector">Active Project:</label>
+    <select id="projectSelector" class="project-select"></select>
+    <button class="btn small primary" id="newProjectBtn">+ New Project</button>
+    
+    <!-- Auto-Save Configuration Inline -->
+    <div style="display:flex; align-items:center; gap:6px; margin-left:auto; border-left:1px solid var(--border); padding-left:12px;">
+      <label for="autoSaveIntervalInput" style="margin:0;">Auto-Save:</label>
+      <input type="number" id="autoSaveIntervalInput" value="30" min="5" max="3600" style="width:60px; padding:4px 6px; font-size:12px; border:1px solid var(--border); border-radius:5px; background:#fff;" title="Interval in seconds">
+      <span style="font-size:11.5px; color:var(--ink-soft);">sec</span>
+      <span id="autoSaveStatusIndicator" style="font-size:11px; font-family:'IBM Plex Mono',monospace; color:var(--green); margin-left:4px;" title="Auto-save status">● Saved</span>
+    </div>
+
+    <button class="btn small primary amber" id="exportPdfBtn">🖨️ Export PDF Report</button>
+    <button class="btn small ghost danger-outline" id="deleteProjectBtn">Delete Current Project</button>
+  </div>
+
+  <div class="titleblock">
+    <div class="titleblock-left">
+      <p class="eyebrow">Milestones // Tasks // Gantt</p>
+      <input class="project-name-input" id="projectNameInput" value="Untitled Project" maxlength="60" aria-label="Project name">
+      <p class="titleblock-sub">Milestone dates and progress percentages calculate automatically from their child tasks.</p>
+    </div>
+    <div class="titleblock-right">
+      <span class="k">Sheet</span><span class="v" id="sheetDateLabel">—</span>
+      <span class="k">Milestones</span><span class="v" id="milestoneCountLabel">0</span>
+      <span class="k">Tasks</span><span class="v" id="taskCountLabel">0</span>
+    </div>
+  </div>
+
+  <div class="toolbar">
+    <button class="btn primary" id="openAddTaskBtn">+ Add Task</button>
+    <button class="btn amber" id="openAddMilestoneBtn">◆ Add Milestone</button>
+    <button class="btn ghost" id="openStatusManagerBtn">⚙️ Manage Statuses</button>
+    <button class="btn ghost" id="openGithubSyncBtn" style="border-color:var(--cyan); color:var(--blue-deep);">🐙 GitHub Sync</button>
+    <div class="spacer"></div>
+    <button class="btn ghost small" id="exportBtn">Export Workspace JSON</button>
+    <button class="btn ghost small" id="importBtn">Import Workspace JSON</button>
+    <input type="file" id="importFile" accept="application/json" style="display:none;">
+  </div>
+
+  <!-- Task/Milestone Form Panel -->
+  <div class="panel form-panel" id="formPanel">
+    <div class="form-head">
+      <h3 id="formTitle">Add Task</h3>
+      <div class="type-toggle">
+        <button type="button" data-type="task" id="typeTaskBtn" class="active">Task</button>
+        <button type="button" data-type="milestone" id="typeMilestoneBtn">Milestone</button>
+      </div>
+    </div>
+    <form id="itemForm">
+      <input type="hidden" id="itemId">
+      <div class="form-grid" id="formGrid">
+        <div class="field full-row" style="grid-column:1/2;">
+          <label for="itemName">Name</label>
+          <input type="text" id="itemName" placeholder="e.g. Foundation pour" maxlength="300" required>
+        </div>
+        <div class="field parent-field">
+          <label for="itemParent">Parent Milestone</label>
+          <select id="itemParent">
+            <option value="">(None)</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="itemStart" id="startLabel">Start date</label>
+          <input type="date" id="itemStart" required>
+        </div>
+        <div class="field end-field">
+          <label for="itemEnd" id="endLabelField">End date</label>
+          <input type="date" id="itemEnd">
+        </div>
+        <div class="field">
+          <label for="itemStatus">Status</label>
+          <select id="itemStatus">
+            <!-- Dynamically populated statuses -->
+          </select>
+        </div>
+        <div class="field revised-field full-row">
+          <label for="itemRevisedEnd">Revised end date <span style="text-transform:none;font-weight:400;">(only if this task has slipped)</span></label>
+          <input type="date" id="itemRevisedEnd">
+          <p class="revised-hint" id="revisedHintText">Leave blank if the task is still on its original end date.</p>
+        </div>
+        <div class="field full-row">
+          <label for="itemNotes">Notes <span style="text-transform:none;font-weight:400;">(optional)</span></label>
+          <textarea id="itemNotes" rows="2" placeholder="Any context worth keeping"></textarea>
+        </div>
+      </div>
+      <div class="form-actions">
+        <button type="button" class="btn ghost" id="cancelFormBtn">Cancel</button>
+        <button type="submit" class="btn primary" id="submitFormBtn">Save Task</button>
+      </div>
+    </form>
+  </div>
+
+  <!-- Status Manager Modal -->
+  <div class="modal-overlay" id="statusModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>Manage Task Statuses</h3>
+        <button class="btn small ghost" style="color:#fff;border-color:rgba(255,255,255,0.4);" id="closeStatusModalBtn">✕ Close</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:12.5px;color:var(--ink-soft);margin-top:0;">Customize the status labels and colors available for your project tasks.</p>
+        <div class="status-mgmt-list" id="statusMgmtList"></div>
+        <div class="status-mgmt-add">
+          <input type="text" id="newStatusNameInput" placeholder="New status label (e.g. In Review)" maxlength="30" style="flex:1;padding:7px 10px;border:1px solid var(--border);border-radius:6px;">
+          <input type="color" id="newStatusColorInput" value="#6FC3E8" title="Pick status color">
+          <button type="button" class="btn small primary" id="addStatusBtn">+ Add Status</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- GitHub Sync Modal -->
+  <div class="modal-overlay" id="githubModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3>GitHub Sync (Gist / Repo)</h3>
+        <button class="btn small ghost" style="color:#fff;border-color:rgba(255,255,255,0.4);" id="closeGithubModalBtn">✕ Close</button>
+      </div>
+      <div class="modal-body">
+        <p style="font-size:12.5px;color:var(--ink-soft);margin-top:0;">Connect your project workspace to GitHub using either a private/public **Gist ID** or a **Repository file path**.</p>
+        
+        <div style="display:flex; flex-direction:column; gap:12px; margin-bottom:18px;">
+          <div class="field">
+            <label for="ghToken">GitHub Personal Access Token (repo or gist scope)</label>
+            <input type="password" id="ghToken" placeholder="ghp_xxxxxxxxxxxxxxxxxxxx" style="font-family:'IBM Plex Mono',monospace;">
+          </div>
+          
+          <div style="display:grid; grid-template-columns: 1fr 1fr; gap: 10px;">
+            <div class="field">
+              <label for="ghSyncMode">Sync Target Type</label>
+              <select id="ghSyncMode">
+                <option value="gist">GitHub Gist</option>
+                <option value="repo">Repository File</option>
+              </select>
+            </div>
+            <div class="field">
+              <label for="ghTargetId">Gist ID or Repo path (owner/repo/path)</label>
+              <input type="text" id="ghTargetId" placeholder="e.g. 91bfb... or username/my-repo/schedule.json" style="font-family:'IBM Plex Mono',monospace;">
+            </div>
+          </div>
+        </div>
+
+        <div style="display:flex; gap:10px; justify-content:flex-end;">
+          <button type="button" class="btn ghost" id="pullFromGithubBtn">⬇️ Pull from GitHub</button>
+          <button type="button" class="btn primary" id="pushToGithubBtn">🐙 Push / Save to GitHub</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <div class="panel list-panel">
+    <table>
+      <thead>
+        <tr>
+          <th>Name</th>
+          <th>Start</th>
+          <th>End</th>
+          <th>Status</th>
+          <th style="text-align:right;" class="actions-cell-head">Actions</th>
+        </tr>
+      </thead>
+      <tbody id="listBody"></tbody>
+    </table>
+  </div>
+
+  <div class="panel gantt-panel">
+    <div class="gantt-head">
+      <div style="display:flex; align-items:center; gap:16px; flex-wrap:wrap;">
+        <h3>Gantt Chart</h3>
+        <div class="zoom-controls">
+          <span style="font-size:11px; font-weight:600; text-transform:uppercase; color:var(--ink-soft); font-family:'IBM Plex Mono',monospace; padding:0 4px;">Density:</span>
+          <button type="button" class="zoom-btn" data-px="10" title="Squeeze view for long timelines">Compact</button>
+          <button type="button" class="zoom-btn active" data-px="22" title="Standard spacing">Standard</button>
+          <button type="button" class="zoom-btn" data-px="36" title="Expanded view">Expanded</button>
+        </div>
+      </div>
+      <div class="legend" id="ganttLegend"></div>
+    </div>
+    <p class="hint">Scroll horizontally to see the full range. Toggle density above to squeeze or expand the view.</p>
+    <div class="gantt-scroll">
+      <div class="gantt-canvas" id="ganttCanvas"></div>
+    </div>
+  </div>
+
+</div>
+
+<script>
+  /* ---------------- storage & default setup ---------------- */
+  const STORAGE_KEY = 'blueprint-schedule-custom-status-v1';
+  const SETTINGS_KEY = 'blueprint-schedule-autosave-settings-v1';
+
+  const DEFAULT_STATUSES = [
+    { id: 'not-started', name: 'Not started', color: '#8CA0B3' },
+    { id: 'in-progress', name: 'In progress', color: '#6FC3E8' },
+    { id: 'completed', name: 'Completed', color: '#4E9A72' },
+    { id: 'delayed', name: 'Delayed', color: '#D8564F' }
+  ];
+
+  function createDefaultProject(name = 'Default Project'){
+    return {
+      id: uid('proj'),
+      name: name,
+      items: []
+    };
+  }
+
+  function loadWorkspace(){
+    const saved = localStorage.getItem(STORAGE_KEY);
+    if(saved){
+      try{
+        const parsed = JSON.parse(saved);
+        if(parsed && Array.isArray(parsed.projects)){
+          if(!parsed.statuses) parsed.statuses = [...DEFAULT_STATUSES];
+          return parsed;
+        }
+      }catch(e){}
+    }
+    const def = createDefaultProject('Default Project');
+    const workspace = { 
+      activeId: def.id, 
+      projects: [def], 
+      statuses: [...DEFAULT_STATUSES] 
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(workspace));
+    return workspace;
+  }
+
+  function saveWorkspace(){
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(workspace));
+    showAutoSaveIndicator();
+  }
+
+  let workspace = loadWorkspace();
+  if(!workspace.statuses) workspace.statuses = [...DEFAULT_STATUSES];
+
+  /* ---------------- Auto-Save Config & Logic ---------------- */
+  let autoSaveTimer = null;
+  const autoSaveIntervalInput = document.getElementById('autoSaveIntervalInput');
+  const autoSaveStatusIndicator = document.getElementById('autoSaveStatusIndicator');
+
+  const savedSettings = localStorage.getItem(SETTINGS_KEY);
+  if(savedSettings){
+    try{
+      const st = JSON.parse(savedSettings);
+      if(st.interval) autoSaveIntervalInput.value = st.interval;
+      if(st.ghToken) document.getElementById('ghToken').value = st.ghToken;
+      if(st.ghSyncMode) document.getElementById('ghSyncMode').value = st.ghSyncMode;
+      if(st.ghTargetId) document.getElementById('ghTargetId').value = st.ghTargetId;
+    }catch(e){}
+  }
+
+  function showAutoSaveIndicator(){
+    autoSaveStatusIndicator.textContent = '● Saved';
+    autoSaveStatusIndicator.style.color = 'var(--green)';
+    setTimeout(() => {
+      autoSaveStatusIndicator.textContent = '● Idle';
+      autoSaveStatusIndicator.style.color = 'var(--ink-soft)';
+    }, 2000);
+  }
+
+  async function syncToGithubBackground() {
+    const token = document.getElementById('ghToken').value.trim();
+    const mode = document.getElementById('ghSyncMode').value;
+    const target = document.getElementById('ghTargetId').value.trim();
+    if(!token || !target) return; // Skip background sync if credentials are incomplete
+
+    try {
+      const contentStr = JSON.stringify(workspace, null, 2);
+      if(mode === 'gist'){
+        await fetch(`https://api.github.com/gists/${target}`, {
+          method: 'PATCH',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/vnd.github+json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            files: { 'schedule-workspace.json': { content: contentStr } }
+          })
+        });
+      } else {
+        // repo mode: owner/repo/filepath
+        const parts = target.split('/');
+        if(parts.length < 3) return;
+        const owner = parts[0], repo = parts[1], path = parts.slice(2).join('/');
+        
+        // Get existing file sha if present
+        let sha = '';
+        const getRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
+          headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' }
+        });
+        if(getRes.ok){
+          const fileData = await getRes.json();
+          sha = fileData.sha;
+        }
+
+        await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
+          method: 'PUT',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/vnd.github+json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            message: 'Auto-sync schedule workspace',
+            content: btoa(unescape(encodeURIComponent(contentStr))),
+            sha: sha || undefined
+          })
+        });
+      }
+    } catch(err) {
+      console.error('Background GitHub sync failed', err);
+    }
+  }
+
+  function resetAutoSaveTimer(){
+    if(autoSaveTimer) clearInterval(autoSaveTimer);
+    let seconds = parseInt(autoSaveIntervalInput.value, 10);
+    if(isNaN(seconds) || seconds < 5) seconds = 30;
+
+    localStorage.setItem(SETTINGS_KEY, JSON.stringify({
+      interval: seconds,
+      ghToken: document.getElementById('ghToken').value.trim(),
+      ghSyncMode: document.getElementById('ghSyncMode').value,
+      ghTargetId: document.getElementById('ghTargetId').value.trim()
+    }));
+
+    autoSaveTimer = setInterval(() => {
+      localStorage.setItem(STORAGE_KEY, JSON.stringify(workspace));
+      showAutoSaveIndicator();
+      syncToGithubBackground();
+    }, seconds * 1000);
+  }
+
+  autoSaveIntervalInput.addEventListener('change', resetAutoSaveTimer);
+  resetAutoSaveTimer();
+
+  /* ---------------- GitHub Sync Modal Logic ---------------- */
+  const githubModal = document.getElementById('githubModal');
+  document.getElementById('openGithubSyncBtn').addEventListener('click', () => {
+    githubModal.classList.add('open');
+  });
+  document.getElementById('closeGithubModalBtn').addEventListener('click', () => {
+    githubModal.classList.remove('open');
+    resetAutoSaveTimer();
+  });
+
+  document.getElementById('pushToGithubBtn').addEventListener('click', async () => {
+    const token = document.getElementById('ghToken').value.trim();
+    const mode = document.getElementById('ghSyncMode').value;
+    const target = document.getElementById('ghTargetId').value.trim();
+    if(!token || !target){ alert('Please enter your GitHub token and target Gist ID or Repository path.'); return; }
+
+    const btn = document.getElementById('pushToGithubBtn');
+    btn.textContent = 'Pushing...';
+    btn.disabled = true;
+
+    try{
+      const contentStr = JSON.stringify(workspace, null, 2);
+      if(mode === 'gist'){
+        const res = await fetch(`https://api.github.com/gists/${target}`, {
+          method: 'PATCH',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/vnd.github+json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            files: { 'schedule-workspace.json': { content: contentStr } }
+          })
+        });
+        if(res.ok){
+          alert('Successfully pushed workspace to GitHub Gist!');
+          resetAutoSaveTimer();
+        } else {
+          const err = await res.json();
+          alert('Failed to push to Gist: ' + (err.message || res.statusText));
+        }
+      } else {
+        const parts = target.split('/');
+        if(parts.length < 3){ alert('Repository path format should be owner/repo/path/to/file.json'); return; }
+        const owner = parts[0], repo = parts[1], path = parts.slice(2).join('/');
+        
+        let sha = '';
+        const getRes = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
+          headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' }
+        });
+        if(getRes.ok){
+          const fileData = await getRes.json();
+          sha = fileData.sha;
+        }
+
+        const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
+          method: 'PUT',
+          headers: {
+            'Authorization': `Bearer ${token}`,
+            'Accept': 'application/vnd.github+json',
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            message: 'Manual sync schedule workspace',
+            content: btoa(unescape(encodeURIComponent(contentStr))),
+            sha: sha || undefined
+          })
+        });
+
+        if(res.ok){
+          alert('Successfully pushed workspace to GitHub repository!');
+          resetAutoSaveTimer();
+        } else {
+          const err = await res.json();
+          alert('Failed to push to repository: ' + (err.message || res.statusText));
+        }
+      }
+    }catch(err){
+      alert('Network error during GitHub push: ' + err.message);
+    }finally{
+      btn.textContent = '🐙 Push / Save to GitHub';
+      btn.disabled = false;
+    }
+  });
+
+  document.getElementById('pullFromGithubBtn').addEventListener('click', async () => {
+    const token = document.getElementById('ghToken').value.trim();
+    const mode = document.getElementById('ghSyncMode').value;
+    const target = document.getElementById('ghTargetId').value.trim();
+    if(!token || !target){ alert('Please enter your GitHub token and target Gist ID or Repository path.'); return; }
+
+    const btn = document.getElementById('pullFromGithubBtn');
+    btn.textContent = 'Pulling...';
+    btn.disabled = true;
+
+    try{
+      let remoteJson = null;
+      if(mode === 'gist'){
+        const res = await fetch(`https://api.github.com/gists/${target}`, {
+          headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' }
+        });
+        if(res.ok){
+          const data = await res.json();
+          const file = data.files['schedule-workspace.json'] || Object.values(data.files)[0];
+          if(file && file.content) remoteJson = JSON.parse(file.content);
+        } else {
+          alert('Failed to retrieve Gist.');
+        }
+      } else {
+        const parts = target.split('/');
+        if(parts.length < 3){ alert('Repository path format should be owner/repo/path/to/file.json'); return; }
+        const owner = parts[0], repo = parts[1], path = parts.slice(2).join('/');
+        
+        const res = await fetch(`https://api.github.com/repos/${owner}/${repo}/contents/${path}`, {
+          headers: { 'Authorization': `Bearer ${token}`, 'Accept': 'application/vnd.github+json' }
+        });
+        if(res.ok){
+          const data = await res.json();
+          const decoded = decodeURIComponent(escape(atob(data.content)));
+          remoteJson = JSON.parse(decoded);
+        } else {
+          alert('Failed to retrieve file from repository.');
+        }
+      }
+
+      if(remoteJson && Array.isArray(remoteJson.projects)){
+        workspace = remoteJson;
+        if(!workspace.statuses) workspace.statuses = [...DEFAULT_STATUSES];
+        saveWorkspace();
+        renderAll();
+        alert('Successfully pulled workspace from GitHub!');
+        githubModal.classList.remove('open');
+      } else {
+        alert('Retrieved data did not match a valid workspace schema.');
+      }
+    }catch(err){
+      alert('Network error during GitHub pull: ' + err.message);
+    }finally{
+      btn.textContent = '⬇️ Pull from GitHub';
+      btn.disabled = false;
+    }
+  });
+
+  function currentProject(){
+    let proj = workspace.projects.find(p => p.id === workspace.activeId);
+    if(!proj){
+      proj = workspace.projects[0];
+      workspace.activeId = proj.id;
+    }
+    return proj;
+  }
+
+  /* ---------------- helpers ---------------- */
+  function uid(prefix){ return (prefix||'id') + '_' + Math.random().toString(36).slice(2,9); }
+  const MONTH_SHORT = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+  function parseDate(str){
+    if(!str) return null;
+    const [y,m,d] = str.split('-').map(Number);
+    if(!y||!m||!d) return null;
+    return new Date(y, m-1, d);
+  }
+  function formatDateStr(d){
+    if(!d || isNaN(d)) return '';
+    const y = d.getFullYear();
+    const m = String(d.getMonth() + 1).padStart(2, '0');
+    const day = String(d.getDate()).padStart(2, '0');
+    return `${y}-${m}-${day}`;
+  }
+  function addDays(d,n){ return new Date(d.getFullYear(), d.getMonth(), d.getDate()+n); }
+  function daysBetween(a,b){ return Math.round((b-a)/86400000); }
+  function formatShort(d){ return MONTH_SHORT[d.getMonth()] + ' ' + d.getDate(); }
+  function formatFull(str){
+    const d = parseDate(str);
+    return d ? formatShort(d) + ', ' + d.getFullYear() : '—';
+  }
+  const today = new Date(); today.setHours(0,0,0,0);
+
+  function getStatusObj(statusId){
+    return workspace.statuses.find(s => s.id === statusId) || workspace.statuses[0] || { id: statusId, name: statusId, color: '#8CA0B3' };
+  }
+
+  function effectiveEnd(item){
+    return item.revisedEnd || item.end;
+  }
+  function isOverdue(item){
+    const endStr = effectiveEnd(item);
+    if(!endStr || item.status === 'completed') return false;
+    const endD = parseDate(endStr);
+    return endD && endD < today;
+  }
+  function displayStatusId(item){
+    const delayStatus = workspace.statuses.find(s => s.id === 'delayed');
+    if(isOverdue(item) && delayStatus) return 'delayed';
+    return item.status;
+  }
+
+  /* ---------------- automatic milestone calculation ---------------- */
+  function calculateMilestoneMetrics(proj){
+    const milestones = proj.items.filter(i => i.type === 'milestone');
+    const tasks = proj.items.filter(i => i.type === 'task');
+
+    milestones.forEach(ms => {
+      const children = tasks.filter(t => t.parentId === ms.id);
+      if(children.length > 0){
+        let earliestStart = null;
+        let latestEnd = null;
+
+        children.forEach(ch => {
+          const s = parseDate(ch.start);
+          const e = parseDate(effectiveEnd(ch) || ch.end || ch.start);
+          if(s && (!earliestStart || s < earliestStart)) earliestStart = s;
+          if(e && (!latestEnd || e > latestEnd)) latestEnd = e;
+        });
+
+        if(earliestStart) ms.start = formatDateStr(earliestStart);
+        if(latestEnd) ms.end = formatDateStr(latestEnd);
+
+        let completedCount = 0;
+        let inProgressCount = 0;
+        children.forEach(ch => {
+          const st = displayStatusId(ch);
+          if(st === 'completed') completedCount++;
+          else if(st !== 'not-started') inProgressCount++;
+        });
+
+        ms.progress = Math.round((completedCount / children.length) * 100);
+
+        if(ms.progress === 100) ms.status = 'completed';
+        else if(ms.progress > 0 || inProgressCount > 0) ms.status = workspace.statuses.find(s => s.id === 'in-progress') ? 'in-progress' : (workspace.statuses[1]?.id || ms.status);
+        else ms.status = workspace.statuses[0].id;
+      } else {
+        ms.progress = 0;
+      }
+    });
+  }
+
+  /* ---------------- project selector UI ---------------- */
+  const projectSelector = document.getElementById('projectSelector');
+  function renderProjectDropdown(){
+    projectSelector.innerHTML = '';
+    workspace.projects.forEach(p => {
+      const opt = document.createElement('option');
+      opt.value = p.id;
+      opt.textContent = p.name;
+      if(p.id === workspace.activeId) opt.selected = true;
+      projectSelector.appendChild(opt);
+    });
+  }
+
+  projectSelector.addEventListener('change', (e)=>{
+    workspace.activeId = e.target.value;
+    saveWorkspace();
+    closeForm();
+    renderAll();
+  });
+
+  document.getElementById('newProjectBtn').addEventListener('click', ()=>{
+    const name = prompt('Enter new project name:', 'New Project');
+    if(!name) return;
+    const newProj = createDefaultProject(name.trim());
+    workspace.projects.push(newProj);
+    workspace.activeId = newProj.id;
+    saveWorkspace();
+    closeForm();
+    renderAll();
+  });
+
+  document.getElementById('deleteProjectBtn').addEventListener('click', ()=>{
+    if(workspace.projects.length <= 1){
+      alert('You cannot delete the only remaining project.');
+      return;
+    }
+    const proj = currentProject();
+    if(!confirm(`Are you sure you want to delete "${proj.name}"?`)) return;
+    workspace.projects = workspace.projects.filter(p => p.id !== proj.id);
+    workspace.activeId = workspace.projects[0].id;
+    saveWorkspace();
+    closeForm();
+    renderAll();
+  });
+
+  document.getElementById('exportPdfBtn').addEventListener('click', () => { window.print(); });
+
+  /* ---------------- Status Manager Modal Logic ---------------- */
+  const statusModal = document.getElementById('statusModal');
+  document.getElementById('openStatusManagerBtn').addEventListener('click', () => {
+    renderStatusManagerList();
+    statusModal.classList.add('open');
+  });
+  document.getElementById('closeStatusModalBtn').addEventListener('click', () => {
+    statusModal.classList.remove('open');
+    renderAll();
+  });
+
+  function renderStatusManagerList(){
+    const listEl = document.getElementById('statusMgmtList');
+    listEl.innerHTML = '';
+    workspace.statuses.forEach((st) => {
+      const row = document.createElement('div');
+      row.className = 'status-mgmt-item';
+      row.innerHTML = `
+        <input type="color" value="${st.color}" data-status-color="${st.id}">
+        <input type="text" value="${escapeHtml(st.name)}" data-status-name="${st.id}" ${workspace.statuses.length <= 1 ? 'disabled' : ''}>
+        <button type="button" class="btn small danger-outline" data-status-del="${st.id}" ${workspace.statuses.length <= 1 ? 'disabled title="Cannot delete last status"' : ''}>Delete</button>
+      `;
+      listEl.appendChild(row);
+    });
+
+    listEl.querySelectorAll('[data-status-color]').forEach(input => {
+      input.addEventListener('input', (e)=>{
+        const id = e.target.dataset.statusColor;
+        const found = workspace.statuses.find(s => s.id === id);
+        if(found){ found.color = e.target.value; saveWorkspace(); }
+      });
+    });
+
+    listEl.querySelectorAll('[data-status-name]').forEach(input => {
+      input.addEventListener('change', (e)=>{
+        const id = e.target.dataset.statusName;
+        const val = e.target.value.trim();
+        if(!val) return;
+        const found = workspace.statuses.find(s => s.id === id);
+        if(found){ found.name = val; saveWorkspace(); }
+      });
+    });
+
+    listEl.querySelectorAll('[data-status-del]').forEach(btn => {
+      btn.addEventListener('click', (e)=>{
+        const id = e.target.dataset.statusDel;
+        if(workspace.statuses.length <= 1){ alert('You must have at least one status.'); return; }
+        if(!confirm('Delete this status? Tasks currently using it will switch to the first available status.')) return;
+        
+        const fallbackId = workspace.statuses.find(s => s.id !== id)?.id || '';
+        workspace.statuses = workspace.statuses.filter(s => s.id !== id);
+
+        workspace.projects.forEach(p => {
+          p.items.forEach(item => {
+            if(item.status === id) item.status = fallbackId;
+          });
+        });
+
+        saveWorkspace();
+        renderStatusManagerList();
+      });
+    });
+  }
+
+  document.getElementById('addStatusBtn').addEventListener('click', ()=>{
+    const nameInput = document.getElementById('newStatusNameInput');
+    const colorInput = document.getElementById('newStatusColorInput');
+    const name = nameInput.value.trim();
+    if(!name){ alert('Please enter a status label.'); return; }
+    const id = name.toLowerCase().replace(/[^a-z0-9]/g, '-') + '-' + Math.random().toString(36).slice(2,5);
+    workspace.statuses.push({ id, name, color: colorInput.value });
+    nameInput.value = '';
+    saveWorkspace();
+    renderStatusManagerList();
+  });
+
+  /* ---------------- form state ---------------- */
+  const formPanel = document.getElementById('formPanel');
+  const itemForm = document.getElementById('itemForm');
+  const formTitle = document.getElementById('formTitle');
+  const submitFormBtn = document.getElementById('submitFormBtn');
+  const typeTaskBtn = document.getElementById('typeTaskBtn');
+  const typeMilestoneBtn = document.getElementById('typeMilestoneBtn');
+  const startLabel = document.getElementById('startLabel');
+  const endLabelField = document.getElementById('endLabelField');
+  const itemStartInput = document.getElementById('itemStart');
+  const itemEndInput = document.getElementById('itemEnd');
+  const itemParentSelect = document.getElementById('itemParent');
+  const itemStatusSelect = document.getElementById('itemStatus');
+  const revisedFieldContainer = document.querySelector('.revised-field');
+  let currentType = 'task';
+
+  function updateStatusDropdownOptions(selectedStatusId = ''){
+    itemStatusSelect.innerHTML = '';
+    workspace.statuses.forEach(st => {
+      const opt = document.createElement('option');
+      opt.value = st.id;
+      opt.textContent = st.name;
+      if(st.id === selectedStatusId) opt.selected = true;
+      itemStatusSelect.appendChild(opt);
+    });
+  }
+
+  function updateParentOptions(selectedParentId = ''){
+    itemParentSelect.innerHTML = '<option value="">(None - Top Level)</option>';
+    const proj = currentProject();
+    proj.items.filter(i => i.type === 'milestone').forEach(ms => {
+      const opt = document.createElement('option');
+      opt.value = ms.id;
+      opt.textContent = ms.name;
+      if(ms.id === selectedParentId) opt.selected = true;
+      itemParentSelect.appendChild(opt);
+    });
+  }
+
+  function setType(type){
+    currentType = type;
+    typeTaskBtn.classList.toggle('active', type === 'task');
+    typeMilestoneBtn.classList.toggle('active', type === 'milestone');
+    
+    if(type === 'milestone'){
+      startLabel.textContent = 'Calculated Start (from tasks)';
+      endLabelField.textContent = 'Calculated Target (from tasks)';
+      itemStartInput.disabled = true;
+      itemEndInput.disabled = true;
+      revisedFieldContainer.style.display = 'none';
+      itemParentSelect.value = '';
+    } else {
+      startLabel.textContent = 'Start date';
+      endLabelField.textContent = 'End date';
+      itemStartInput.disabled = false;
+      itemEndInput.disabled = false;
+      revisedFieldContainer.style.display = 'block';
+    }
+  }
+  typeTaskBtn.addEventListener('click', ()=> setType('task'));
+  typeMilestoneBtn.addEventListener('click', ()=> setType('milestone'));
+
+  function openForm(editingItem){
+    updateParentOptions(editingItem ? editingItem.parentId : '');
+    updateStatusDropdownOptions(editingItem ? editingItem.status : workspace.statuses[0]?.id);
+    if(editingItem){
+      formTitle.textContent = editingItem.type === 'milestone' ? 'Edit Milestone' : 'Edit Task';
+      submitFormBtn.textContent = 'Update';
+      document.getElementById('itemId').value = editingItem.id;
+      document.getElementById('itemName').value = editingItem.name;
+      itemStartInput.value = editingItem.start || '';
+      itemEndInput.value = editingItem.end || '';
+      document.getElementById('itemRevisedEnd').value = editingItem.revisedEnd || '';
+      document.getElementById('itemStatus').value = editingItem.status || workspace.statuses[0]?.id;
+      document.getElementById('itemNotes').value = editingItem.notes || '';
+      setType(editingItem.type);
+    } else {
+      itemForm.reset();
+      document.getElementById('itemId').value = '';
+      formTitle.textContent = currentType === 'milestone' ? 'Add Milestone' : 'Add Task';
+      submitFormBtn.textContent = 'Save';
+      setType(currentType);
+    }
+    formPanel.classList.add('open');
+    formPanel.scrollIntoView({ behavior:'smooth', block:'nearest' });
+  }
+  function closeForm(){
+    formPanel.classList.remove('open');
+    itemForm.reset();
+  }
+
+  document.getElementById('openAddTaskBtn').addEventListener('click', ()=>{ currentType='task'; openForm(null); });
+  document.getElementById('openAddMilestoneBtn').addEventListener('click', ()=>{ currentType='milestone'; openForm(null); });
+  document.getElementById('cancelFormBtn').addEventListener('click', closeForm);
+
+  itemForm.addEventListener('submit', (e)=>{
+    e.preventDefault();
+    const id = document.getElementById('itemId').value;
+    const name = document.getElementById('itemName').value.trim();
+    const parentId = currentType === 'task' ? itemParentSelect.value : '';
+    let start = itemStartInput.value;
+    let end = itemEndInput.value;
+    const revisedEndRaw = document.getElementById('itemRevisedEnd').value;
+    const status = itemStatusSelect.value;
+    const notes = document.getElementById('itemNotes').value.trim();
+
+    if(!name) return;
+    if(currentType === 'task' && (!start || !end)) return;
+
+    const revisedEnd = (currentType === 'task' && revisedEndRaw && revisedEndRaw !== end) ? revisedEndRaw : '';
+    const proj = currentProject();
+
+    if(id){
+      const item = proj.items.find(i => i.id === id);
+      if(item){
+        Object.assign(item, { type: currentType, parentId, name, start: currentType === 'task' ? start : item.start, end: currentType === 'task' ? end : item.end, revisedEnd, status, notes });
+      }
+    } else {
+      proj.items.push({ 
+        id: uid('it'), 
+        type: currentType, 
+        parentId, 
+        name, 
+        start: currentType === 'task' ? start : '', 
+        end: currentType === 'task' ? end : '', 
+        revisedEnd, 
+        status, 
+        notes,
+        progress: 0
+      });
+    }
+
+    calculateMilestoneMetrics(proj);
+    saveWorkspace();
+    closeForm();
+    renderAll();
+  });
+
+  function editItem(id){
+    const proj = currentProject();
+    const item = proj.items.find(i => i.id === id);
+    if(item) openForm(item);
+  }
+  function deleteItem(id){
+    if(!confirm('Delete this item? (If this is a milestone, sub-tasks will become unparented)')) return;
+    const proj = currentProject();
+    proj.items = proj.items.filter(i => i.id !== id && i.parentId !== id);
+    calculateMilestoneMetrics(proj);
+    saveWorkspace();
+    renderAll();
+  }
+
+  const projectNameInput = document.getElementById('projectNameInput');
+  projectNameInput.addEventListener('change', ()=>{
+    const proj = currentProject();
+    proj.name = projectNameInput.value.trim() || 'Untitled Project';
+    saveWorkspace();
+    renderProjectDropdown();
+  });
+
+  /* ---------------- tree structure ---------------- */
+  function getStructuredItems(){
+    const proj = currentProject();
+    calculateMilestoneMetrics(proj);
+    const milestones = proj.items.filter(i => i.type === 'milestone').sort((a,b) => (a.start||'').localeCompare(b.start||''));
+    const tasks = proj.items.filter(i => i.type === 'task');
+
+    const result = [];
+    milestones.forEach(ms => {
+      const childTasks = tasks.filter(t => t.parentId === ms.id).sort((a,b) => (a.start||'').localeCompare(b.start||''));
+      result.push({ ...ms, children: childTasks });
+    });
+
+    const unparentedTasks = tasks.filter(t => !t.parentId || !milestones.some(m => m.id === t.parentId)).sort((a,b) => (a.start||'').localeCompare(b.start||''));
+    unparentedTasks.forEach(t => {
+      result.push({ ...t, children: [] });
+    });
+
+    return result;
+  }
+
+  /* ---------------- list render ---------------- */
+  function renderList(){
+    const proj = currentProject();
+    projectNameInput.value = proj.name;
+
+    const tbody = document.getElementById('listBody');
+    tbody.innerHTML = '';
+    if(!proj.items.length){
+      tbody.innerHTML = '<tr class="empty-row"><td colspan="5">No tasks or milestones yet — add one above to start the schedule.</td></tr>';
+      return;
+    }
+
+    const structure = getStructuredItems();
+    structure.forEach(node => {
+      const stId = displayStatusId(node);
+      const stObj = getStatusObj(stId);
+      const tr = document.createElement('tr');
+      const typePillHtml = `<span class="type-pill ${node.type}">${node.type === 'milestone' ? 'Milestone' : 'Task'}</span>`;
+      const revisedNote = node.revisedEnd ? `<div class="revise-note">Revised → ${formatFull(node.revisedEnd)}</div>` : '';
+      
+      let statusHtml = '';
+      if(node.type === 'milestone'){
+        statusHtml = `<span class="status-pill" style="background:${stObj.color}22; color:${stObj.color};"><span class="dot" style="background:${stObj.color};"></span>${stObj.name} (${node.progress || 0}%)</span>`;
+      } else {
+        let optionsHtml = '';
+        workspace.statuses.forEach(s => {
+          optionsHtml += `<option value="${s.id}" ${node.status === s.id ? 'selected' : ''}>${s.name}</option>`;
+        });
+        statusHtml = `
+          <select class="inline-status-select" data-status-id="${node.id}" style="background:${stObj.color}22; color:${stObj.color}; border-color:${stObj.color};">
+            ${optionsHtml}
+          </select>
+        `;
+      }
+
+      tr.innerHTML = `
+        <td class="name-cell">${typePillHtml}${escapeHtml(node.name)}${node.notes ? `<div style="font-weight:400;color:var(--ink-soft);font-size:12px;margin-top:2px;">${escapeHtml(node.notes)}</div>` : ''}</td>
+        <td class="date-cell">${node.start ? formatFull(node.start) : '—'}</td>
+        <td class="date-cell">${node.type === 'milestone' ? (node.end ? formatFull(node.end) : '—') : formatFull(node.end)}${revisedNote}</td>
+        <td>${statusHtml}</td>
+        <td class="actions-cell">
+          <button type="button" class="btn small ghost" data-edit="${node.id}">Edit</button>
+          <button type="button" class="btn small danger-outline" data-delete="${node.id}">Delete</button>
+        </td>
+      `;
+      tbody.appendChild(tr);
+
+      if(node.children && node.children.length > 0){
+        node.children.forEach(child => {
+          const cStId = displayStatusId(child);
+          const cStObj = getStatusObj(cStId);
+          const ctr = document.createElement('tr');
+          ctr.className = 'subtask-row';
+          const cRevisedNote = child.revisedEnd ? `<div class="revise-note">Revised → ${formatFull(child.revisedEnd)}</div>` : '';
+          
+          let cOptionsHtml = '';
+          workspace.statuses.forEach(s => {
+            cOptionsHtml += `<option value="${s.id}" ${child.status === s.id ? 'selected' : ''}>${s.name}</option>`;
+          });
+          const childStatusHtml = `
+            <select class="inline-status-select" data-status-id="${child.id}" style="background:${cStObj.color}22; color:${cStObj.color}; border-color:${cStObj.color};">
+              ${cOptionsHtml}
+            </select>
+          `;
+          ctr.innerHTML = `
+            <td class="name-cell"><span class="type-pill task">Task</span>↳ ${escapeHtml(child.name)}${child.notes ? `<div style="font-weight:400;color:var(--ink-soft);font-size:12px;margin-top:2px;">${escapeHtml(child.notes)}</div>` : ''}</td>
+            <td class="date-cell">${formatFull(child.start)}</td>
+            <td class="date-cell">${formatFull(child.end)}${cRevisedNote}</td>
+            <td>${childStatusHtml}</td>
+            <td class="actions-cell">
+              <button type="button" class="btn small ghost" data-edit="${child.id}">Edit</button>
+              <button type="button" class="btn small danger-outline" data-delete="${child.id}">Delete</button>
+            </td>
+          `;
+          tbody.appendChild(ctr);
+        });
+      }
+    });
+
+    tbody.querySelectorAll('.inline-status-select').forEach(sel => {
+      sel.addEventListener('change', (e) => {
+        const itemId = e.target.dataset.statusId;
+        const newStatus = e.target.value;
+        const targetItem = proj.items.find(i => i.id === itemId);
+        if(targetItem){
+          targetItem.status = newStatus;
+          calculateMilestoneMetrics(proj);
+          saveWorkspace();
+          renderAll();
+        }
+      });
+    });
+
+    tbody.querySelectorAll('[data-edit]').forEach(b => b.addEventListener('click', ()=> editItem(b.dataset.edit)));
+    tbody.querySelectorAll('[data-delete]').forEach(b => b.addEventListener('click', ()=> deleteItem(b.dataset.delete)));
+  }
+
+  function escapeHtml(str){
+    const div = document.createElement('div');
+    div.textContent = str;
+    return div.innerHTML;
+  }
+
+  function renderSummary(){
+    const proj = currentProject();
+    document.getElementById('sheetDateLabel').textContent = formatShort(today) + ', ' + today.getFullYear();
+    document.getElementById('milestoneCountLabel').textContent = proj.items.filter(i => i.type === 'milestone').length;
+    document.getElementById('taskCountLabel').textContent = proj.items.filter(i => i.type === 'task').length;
+
+    const legendEl = document.getElementById('ganttLegend');
+    legendEl.innerHTML = '';
+    workspace.statuses.forEach(st => {
+      legendEl.innerHTML += `<span><span class="sw" style="background:${st.color};"></span>${escapeHtml(st.name)}</span>`;
+    });
+    legendEl.innerHTML += `<span><span class="diamond" style="background:var(--amber);"></span>Milestone</span>`;
+    legendEl.innerHTML += `<span><span class="sw" style="background:repeating-linear-gradient(135deg,#D8564F,#D8564F 3px,#fff 3px,#fff 6px);"></span>Slip</span>`;
+  }
+
+  /* ---------------- gantt render with dynamic density ---------------- */
+  let pxPerDay = 22;
+  const ROW_H = 36;
+  const RULER_H = 38;
+  const LABEL_W = 220;
+
+  document.querySelectorAll('.zoom-btn').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      document.querySelectorAll('.zoom-btn').forEach(b => b.classList.remove('active'));
+      e.target.classList.add('active');
+      pxPerDay = parseInt(e.target.dataset.px, 10);
+      renderGantt();
+    });
+  });
+
+  function renderGantt(){
+    const proj = currentProject();
+    const canvas = document.getElementById('ganttCanvas');
+    canvas.innerHTML = '';
+
+    const validItems = proj.items.filter(i => i.start);
+    if(!validItems.length){
+      canvas.innerHTML = '<div class="gantt-empty">Add tasks with start/end dates to plot the Gantt chart.</div>';
+      return;
+    }
+
+    let minD = parseDate(validItems[0].start);
+    let maxD = parseDate(effectiveEnd(validItems[0]) || validItems[0].start);
+    validItems.forEach(item => {
+      const s = parseDate(item.start);
+      const e = parseDate(effectiveEnd(item) || item.start);
+      if(s && s < minD) minD = s;
+      if(e && e > maxD) maxD = e;
+    });
+    if(today < minD) minD = today;
+    if(today > maxD) maxD = today;
+    minD = addDays(minD, -3);
+    maxD = addDays(maxD, 4);
+
+    const totalDays = Math.max(1, daysBetween(minD, maxD));
+    const chartWidth = LABEL_W + totalDays * pxPerDay;
+    
+    const structure = getStructuredItems();
+    let totalRowsCount = 0;
+    structure.forEach(node => {
+      totalRowsCount++;
+      if(node.children) totalRowsCount += node.children.length;
+    });
+
+    const chartHeight = RULER_H + totalRowsCount * ROW_H;
+    canvas.style.width = chartWidth + 'px';
+    canvas.style.minHeight = chartHeight + 'px';
+
+    function xForDate(d){ return LABEL_W + daysBetween(minD, d) * pxPerDay; }
+
+    const ruler = document.createElement('div');
+    ruler.className = 'gantt-ruler';
+    ruler.style.width = chartWidth + 'px';
+    let monthCursor = new Date(minD.getFullYear(), minD.getMonth(), 1);
+    while(monthCursor <= maxD){
+      const tickX = Math.max(LABEL_W, xForDate(monthCursor));
+      const tick = document.createElement('div');
+      tick.className = 'ruler-tick';
+      tick.style.left = tickX + 'px';
+      tick.textContent = MONTH_SHORT[monthCursor.getMonth()] + ' ' + monthCursor.getFullYear();
+      ruler.appendChild(tick);
+      monthCursor = new Date(monthCursor.getFullYear(), monthCursor.getMonth()+1, 1);
+    }
+    const labelDivider = document.createElement('div');
+    labelDivider.className = 'ruler-tick';
+    labelDivider.style.left = LABEL_W + 'px';
+    labelDivider.style.borderLeft = '1px solid var(--grid-line-strong)';
+    ruler.appendChild(labelDivider);
+    canvas.appendChild(ruler);
+
+    const rowsWrap = document.createElement('div');
+    rowsWrap.className = 'gantt-rows';
+    rowsWrap.style.width = chartWidth + 'px';
+
+    function renderGanttRow(item, isSub = false){
+      const row = document.createElement('div');
+      row.className = 'gantt-row' + (isSub ? ' subtask-row-gantt' : '');
+      row.style.width = chartWidth + 'px';
+
+      const label = document.createElement('div');
+      label.className = 'row-label';
+      label.style.width = LABEL_W + 'px';
+      label.textContent = (isSub ? '↳ ' : (item.type === 'milestone' ? '◆ ' : '')) + item.name;
+      label.title = item.name;
+      row.appendChild(label);
+
+      const stId = displayStatusId(item);
+      const stObj = getStatusObj(stId);
+      const startD = parseDate(item.start);
+
+      if(item.type === 'milestone'){
+        if(startD){
+          const diamond = document.createElement('div');
+          diamond.className = 'gantt-diamond';
+          diamond.style.background = stObj.color;
+          diamond.style.left = xForDate(startD) + 'px';
+          diamond.title = item.name + ' — ' + formatFull(item.start) + ' (' + (item.progress || 0) + '%)';
+          row.appendChild(diamond);
+          
+          if(pxPerDay > 12) {
+            const msLabel = document.createElement('div');
+            msLabel.className = 'gantt-ms-label';
+            msLabel.style.left = xForDate(startD) + 'px';
+            msLabel.textContent = formatFull(item.start) + (item.end && item.end !== item.start ? ' → ' + formatShort(parseDate(item.end)) : '') + ` [${item.progress || 0}%]`;
+            row.appendChild(msLabel);
+          }
+        }
+      } else {
+        const endD = parseDate(item.end);
+        if(startD && endD){
+          const barX = xForDate(startD);
+          const barW = Math.max(pxPerDay * 0.6, (daysBetween(startD, endD) + 1) * pxPerDay - 2);
+          const bar = document.createElement('div');
+          bar.className = 'gantt-bar';
+          bar.style.background = stObj.color;
+          bar.style.color = '#fff';
+          bar.style.left = barX + 'px';
+          bar.style.width = barW + 'px';
+          bar.title = item.name + ' — ' + formatFull(item.start) + ' to ' + formatFull(item.end);
+          bar.textContent = barW > 50 ? item.name : '';
+          row.appendChild(bar);
+
+          if(item.revisedEnd){
+            const revD = parseDate(item.revisedEnd);
+            const origEndX = xForDate(endD) + pxPerDay - 2;
+            const revEndX = xForDate(revD) + pxPerDay - 2;
+            if(revEndX > origEndX){
+              const slip = document.createElement('div');
+              slip.className = 'gantt-slip';
+              slip.style.left = origEndX + 'px';
+              slip.style.width = (revEndX - origEndX) + 'px';
+              row.appendChild(slip);
+
+              if(pxPerDay > 12) {
+                const flag = document.createElement('div');
+                flag.className = 'rev-flag';
+                flag.style.left = ((origEndX + revEndX) / 2) + 'px';
+                flag.textContent = 'REV +' + daysBetween(endD, revD) + 'd';
+                row.appendChild(flag);
+              }
+            }
+          }
+        }
+      }
+      rowsWrap.appendChild(row);
+    }
+
+    structure.forEach(node => {
+      renderGanttRow(node, false);
+      if(node.children && node.children.length > 0){
+        node.children.forEach(child => {
+          renderGanttRow(child, true);
+        });
+      }
+    });
+
+    canvas.appendChild(rowsWrap);
+
+    if(today >= minD && today <= maxD){
+      const line = document.createElement('div');
+      line.className = 'today-line';
+      line.style.left = xForDate(today) + 'px';
+      line.style.height = chartHeight + 'px';
+      canvas.appendChild(line);
+      const flag = document.createElement('div');
+      flag.className = 'today-flag';
+      flag.style.left = xForDate(today) + 'px';
+      flag.textContent = 'TODAY';
+      canvas.appendChild(flag);
+    }
+  }
+
+  /* ---------------- import / export ---------------- */
+  document.getElementById('exportBtn').addEventListener('click', ()=>{
+    const blob = new Blob([JSON.stringify(workspace, null, 2)], { type:'application/json' });
+    const url = URL.createObjectURL(blob);
+    const a = document.createElement('a');
+    a.href = url;
+    a.download = 'multi_project_schedule_workspace.json';
+    document.body.appendChild(a); a.click(); document.body.removeChild(a);
+    URL.revokeObjectURL(url);
+  });
+
+  document.getElementById('importBtn').addEventListener('click', ()=>{
+    document.getElementById('importFile').click();
+  });
+
+  document.getElementById('importFile').addEventListener('change', (e)=>{
+    const file = e.target.files[0];
+    if(!file) return;
+    const reader = new FileReader();
+    reader.onload = () => {
+      try{
+        const parsed = JSON.parse(reader.result);
+        if(parsed && Array.isArray(parsed.projects)){
+          workspace = parsed;
+          if(!workspace.statuses) workspace.statuses = [...DEFAULT_STATUSES];
+        } else {
+          alert('Invalid schedule workspace file.');
+          return;
+        }
+        saveWorkspace();
+        renderProjectDropdown();
+        renderAll();
+      }catch(err){
+        alert('Could not read that file as JSON.');
+      }
+    };
+    reader.readAsText(file);
+    e.target.value = '';
+  });
+
+  function renderAll(){
+    renderProjectDropdown();
+    renderSummary();
+    renderList();
+    renderGantt();
+  }
+  renderAll();
+</script>
+</body>
+</html>
