@@ -285,6 +285,13 @@
   }
 
   .revise-note{ font-size:11.5px; color:var(--red); margin-top:3px; }
+  .resource-chip{
+    display:inline-block; font-size:10.5px; font-weight:600;
+    background:#E4EEF6; color:#2A5C82;
+    padding:1px 7px; border-radius:10px; margin:3px 4px 0 0;
+  }
+  .resource-list{ margin-top:2px; }
+  .resource-cell-empty{ color:var(--ink-soft); font-size:12px; font-style:italic; }
   .date-cell{ font-family:'IBM Plex Mono',monospace; font-size:12px; white-space:nowrap; }
   .actions-cell{ white-space:nowrap; text-align:right; }
   .actions-cell button{ margin-left:6px; }
@@ -529,6 +536,10 @@
           <input type="date" id="itemRevisedEnd">
           <p class="revised-hint" id="revisedHintText">Leave blank if the task is still on its original end date.</p>
         </div>
+        <div class="field resources-field full-row">
+          <label for="itemResources">Resources <span style="text-transform:none;font-weight:400;">(optional — who or what's assigned, comma-separated)</span></label>
+          <input type="text" id="itemResources" placeholder="e.g. Alex, Priya, Structural Team">
+        </div>
         <div class="field full-row">
           <label for="itemNotes">Notes <span style="text-transform:none;font-weight:400;">(optional)</span></label>
           <textarea id="itemNotes" rows="2" placeholder="Any context worth keeping"></textarea>
@@ -607,6 +618,7 @@
           <th>Start</th>
           <th>End</th>
           <th>Status</th>
+          <th>Resources</th>
           <th style="text-align:right;" class="actions-cell-head">Actions</th>
         </tr>
       </thead>
@@ -1159,6 +1171,7 @@
   const itemParentSelect = document.getElementById('itemParent');
   const itemStatusSelect = document.getElementById('itemStatus');
   const revisedFieldContainer = document.querySelector('.revised-field');
+  const resourcesFieldContainer = document.querySelector('.resources-field');
   let currentType = 'task';
 
   function updateStatusDropdownOptions(selectedStatusId = ''){
@@ -1195,6 +1208,7 @@
       itemStartInput.disabled = true;
       itemEndInput.disabled = true;
       revisedFieldContainer.style.display = 'none';
+      resourcesFieldContainer.style.display = 'none';
       itemParentSelect.value = '';
     } else {
       startLabel.textContent = 'Start date';
@@ -1202,10 +1216,20 @@
       itemStartInput.disabled = false;
       itemEndInput.disabled = false;
       revisedFieldContainer.style.display = 'block';
+      resourcesFieldContainer.style.display = 'block';
     }
   }
   typeTaskBtn.addEventListener('click', ()=> setType('task'));
   typeMilestoneBtn.addEventListener('click', ()=> setType('milestone'));
+
+  // Splits the comma-separated Resources input into a clean array of names,
+  // trimming whitespace and dropping empty entries.
+  function parseResourcesInput(raw){
+    return String(raw || '')
+      .split(',')
+      .map(r => r.trim())
+      .filter(r => r.length > 0);
+  }
 
   function openForm(editingItem){
     updateParentOptions(editingItem ? editingItem.parentId : '');
@@ -1219,6 +1243,7 @@
       itemEndInput.value = editingItem.end || '';
       document.getElementById('itemRevisedEnd').value = editingItem.revisedEnd || '';
       document.getElementById('itemStatus').value = editingItem.status || workspace.statuses[0]?.id;
+      document.getElementById('itemResources').value = (editingItem.resources || []).join(', ');
       document.getElementById('itemNotes').value = editingItem.notes || '';
       setType(editingItem.type);
     } else {
@@ -1250,6 +1275,7 @@
     const revisedEndRaw = document.getElementById('itemRevisedEnd').value;
     const status = itemStatusSelect.value;
     const notes = document.getElementById('itemNotes').value.trim();
+    const resources = currentType === 'task' ? parseResourcesInput(document.getElementById('itemResources').value) : [];
 
     if(!name) return;
     if(currentType === 'task' && (!start || !end)) return;
@@ -1260,7 +1286,7 @@
     if(id){
       const item = proj.items.find(i => i.id === id);
       if(item){
-        Object.assign(item, { type: currentType, parentId, name, start: currentType === 'task' ? start : item.start, end: currentType === 'task' ? end : item.end, revisedEnd, status, notes });
+        Object.assign(item, { type: currentType, parentId, name, start: currentType === 'task' ? start : item.start, end: currentType === 'task' ? end : item.end, revisedEnd, status, notes, resources });
       }
     } else {
       proj.items.push({ 
@@ -1273,6 +1299,7 @@
         revisedEnd, 
         status, 
         notes,
+        resources,
         progress: 0
       });
     }
@@ -1327,6 +1354,11 @@
   }
 
   /* ---------------- list render ---------------- */
+  function resourcesCellHtml(resources){
+    if(!resources || !resources.length) return '<span class="resource-cell-empty">—</span>';
+    return `<div class="resource-list">${resources.map(r => `<span class="resource-chip">${escapeHtml(r)}</span>`).join('')}</div>`;
+  }
+
   function renderList(){
     const proj = currentProject();
     projectNameInput.value = proj.name;
@@ -1334,7 +1366,7 @@
     const tbody = document.getElementById('listBody');
     tbody.innerHTML = '';
     if(!proj.items.length){
-      tbody.innerHTML = '<tr class="empty-row"><td colspan="5">No tasks or milestones yet — add one above to start the schedule.</td></tr>';
+      tbody.innerHTML = '<tr class="empty-row"><td colspan="6">No tasks or milestones yet — add one above to start the schedule.</td></tr>';
       return;
     }
 
@@ -1366,6 +1398,7 @@
         <td class="date-cell">${node.start ? formatFull(node.start) : '—'}</td>
         <td class="date-cell">${node.type === 'milestone' ? (node.end ? formatFull(node.end) : '—') : formatFull(node.end)}${revisedNote}</td>
         <td>${statusHtml}</td>
+        <td>${node.type === 'milestone' ? '<span class="resource-cell-empty">—</span>' : resourcesCellHtml(node.resources)}</td>
         <td class="actions-cell">
           <button type="button" class="btn small ghost" data-edit="${node.id}">Edit</button>
           <button type="button" class="btn small danger-outline" data-delete="${node.id}">Delete</button>
@@ -1395,6 +1428,7 @@
             <td class="date-cell">${formatFull(child.start)}</td>
             <td class="date-cell">${formatFull(child.end)}${cRevisedNote}</td>
             <td>${childStatusHtml}</td>
+            <td>${resourcesCellHtml(child.resources)}</td>
             <td class="actions-cell">
               <button type="button" class="btn small ghost" data-edit="${child.id}">Edit</button>
               <button type="button" class="btn small danger-outline" data-delete="${child.id}">Delete</button>
@@ -1567,7 +1601,7 @@
           bar.style.color = '#fff';
           bar.style.left = barX + 'px';
           bar.style.width = barW + 'px';
-          bar.title = item.name + ' — ' + formatFull(item.start) + ' to ' + formatFull(item.end);
+          bar.title = item.name + ' — ' + formatFull(item.start) + ' to ' + formatFull(item.end) + (item.resources && item.resources.length ? ' — ' + item.resources.join(', ') : '');
           bar.textContent = barW > 50 ? item.name : '';
           row.appendChild(bar);
 
