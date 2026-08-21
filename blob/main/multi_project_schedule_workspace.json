@@ -154,7 +154,22 @@
           "progress": 0
         }
       ],
-      "monitoring": []
+      "monitoring": [
+        {
+          "id": "mon_xkibyhf",
+          "clientName": "zzz",
+          "details": "",
+          "priority": "low",
+          "status": "completed",
+          "start": "",
+          "end": "",
+          "revise": "",
+          "release1": "",
+          "release2": "",
+          "release3": "",
+          "remarks": ""
+        }
+      ]
     }
   ],
   "statuses": [
