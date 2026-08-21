@@ -9,13 +9,14 @@
           "id": "it_6k1y48w",
           "type": "milestone",
           "parentId": "",
-          "name": "Week 1: Baseline Lock, NCR Coordination & Initial Audit",
+          "name": "Week 1: New Customer Baseline",
           "start": "2026-08-24",
           "end": "2026-08-28",
           "revisedEnd": "",
           "status": "not-started",
           "notes": "",
-          "progress": 0
+          "progress": 0,
+          "resources": []
         },
         {
           "id": "it_puvulya",
