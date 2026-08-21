@@ -78,25 +78,32 @@
           "id": "it_rb1g72m",
           "type": "task",
           "parentId": "it_puvulya",
-          "name": "Compatibility & Risk Assessment",
+          "name": "Determine the official target Aloha version, along with the exact approved plugin, reporting tools, and e-journal configuration",
           "start": "2026-08-31",
-          "end": "2026-08-31",
+          "end": "2026-09-01",
           "revisedEnd": "",
           "status": "not-started",
           "notes": "",
-          "progress": 0
+          "progress": 0,
+          "resources": [
+            "Jaymark"
+          ]
         },
         {
           "id": "it_abg8m1g",
           "type": "task",
           "parentId": "it_puvulya",
-          "name": "Rapid Pilot Rollout",
-          "start": "2026-09-01",
+          "name": "Validate the new update against old fixes; coordinate directly with NCR if any required fixes are missing from the package.",
+          "start": "2026-09-02",
           "end": "2026-09-02",
           "revisedEnd": "",
           "status": "not-started",
           "notes": "",
-          "progress": 0
+          "progress": 0,
+          "resources": [
+            "Jaymark",
+            "Lawrence"
+          ]
         },
         {
           "id": "it_tu8fkbq",
