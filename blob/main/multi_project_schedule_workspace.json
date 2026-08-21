@@ -154,7 +154,34 @@
           "progress": 0
         }
       ],
-      "monitoring": []
+      "monitoring": [
+        {
+          "id": "mon_mm2uce9",
+          "name": "z",
+          "priority": "medium",
+          "status": "not-started",
+          "start": "",
+          "end": "",
+          "revise": "",
+          "release1": "",
+          "release2": "",
+          "release3": "",
+          "remarks": ""
+        },
+        {
+          "id": "mon_dr0c2f7",
+          "name": "",
+          "priority": "medium",
+          "status": "not-started",
+          "start": "",
+          "end": "",
+          "revise": "",
+          "release1": "",
+          "release2": "",
+          "release3": "",
+          "remarks": ""
+        }
+      ]
     }
   ],
   "statuses": [
