@@ -148,7 +148,9 @@
           "revisedEnd": "",
           "status": "not-started",
           "notes": "",
-          "resources": [],
+          "resources": [
+            "Lawrence"
+          ],
           "progress": 0
         }
       ]
