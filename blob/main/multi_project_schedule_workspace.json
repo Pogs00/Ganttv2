@@ -61,13 +61,17 @@
           "id": "it_trlkgfd",
           "type": "task",
           "parentId": "it_6k1y48w",
-          "name": "E-Journal Audit & Blueprint Lock",
+          "name": "Validate the new update against old fixes; coordinate directly with NCR if any required fixes are missing from the package.",
           "start": "2026-08-27",
           "end": "2026-08-28",
           "revisedEnd": "",
           "status": "not-started",
           "notes": "",
-          "progress": 0
+          "progress": 0,
+          "resources": [
+            "Jaymark",
+            "Lawrence"
+          ]
         },
         {
           "id": "it_rb1g72m",
