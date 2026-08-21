@@ -32,18 +32,6 @@
           "resources": []
         },
         {
-          "id": "it_v8gu863",
-          "type": "milestone",
-          "parentId": "",
-          "name": "Week 3: Full Customer Migration Blitz",
-          "start": "2026-09-07",
-          "end": "2026-09-11",
-          "revisedEnd": "",
-          "status": "not-started",
-          "notes": "",
-          "progress": 0
-        },
-        {
           "id": "it_cnsu7xx",
           "type": "task",
           "parentId": "it_6k1y48w",
@@ -109,37 +97,16 @@
           "id": "it_tu8fkbq",
           "type": "task",
           "parentId": "it_puvulya",
-          "name": "Pilot Feedback & Adjustments",
+          "name": "Test the plugin end-to-end, specifically confirming the automated generation of e-journals on every transaction.",
           "start": "2026-09-03",
-          "end": "2026-09-04",
+          "end": "2026-09-03",
           "revisedEnd": "",
           "status": "not-started",
           "notes": "",
-          "progress": 0
-        },
-        {
-          "id": "it_a8vbbao",
-          "type": "task",
-          "parentId": "it_v8gu863",
-          "name": "Batched Mass Migration (if applicable)",
-          "start": "2026-09-07",
-          "end": "2026-09-09",
-          "revisedEnd": "",
-          "status": "not-started",
-          "notes": "",
-          "progress": 0
-        },
-        {
-          "id": "it_tx0alzm",
-          "type": "task",
-          "parentId": "it_v8gu863",
-          "name": "Final Cleanup & Sign-Off",
-          "start": "2026-09-10",
-          "end": "2026-09-11",
-          "revisedEnd": "",
-          "status": "not-started",
-          "notes": "",
-          "progress": 0
+          "progress": 0,
+          "resources": [
+            "Jaymark"
+          ]
         },
         {
           "id": "it_lnkzb3t",
@@ -169,6 +136,19 @@
           "resources": [
             "Lawrence"
           ],
+          "progress": 0
+        },
+        {
+          "id": "it_1y05qlr",
+          "type": "task",
+          "parentId": "it_puvulya",
+          "name": "Establish this version as the mandatory blueprint moving forward for all existing new clients.",
+          "start": "2026-09-04",
+          "end": "2026-09-04",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [],
           "progress": 0
         }
       ]
