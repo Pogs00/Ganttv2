@@ -22,13 +22,14 @@
           "id": "it_puvulya",
           "type": "milestone",
           "parentId": "",
-          "name": "Week 2: Legacy Compatibility & Accelerated Pilot",
+          "name": "Week 2: Old Customer Baseline",
           "start": "2026-08-31",
           "end": "2026-09-04",
           "revisedEnd": "",
           "status": "not-started",
           "notes": "",
-          "progress": 0
+          "progress": 0,
+          "resources": []
         },
         {
           "id": "it_v8gu863",
