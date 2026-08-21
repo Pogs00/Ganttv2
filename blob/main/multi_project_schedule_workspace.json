@@ -167,7 +167,7 @@
           "release1": "",
           "release2": "",
           "release3": "",
-          "remarks": ""
+          "remarks": []
         },
         {
           "id": "mon_3vvok4f",
@@ -181,7 +181,7 @@
           "release1": "",
           "release2": "",
           "release3": "",
-          "remarks": ""
+          "remarks": []
         },
         {
           "id": "mon_olehg2w",
@@ -195,7 +195,7 @@
           "release1": "",
           "release2": "",
           "release3": "",
-          "remarks": ""
+          "remarks": []
         }
       ]
     }
