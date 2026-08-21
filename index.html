@@ -246,6 +246,127 @@
     display: flex; gap: 10px; align-items: center;
   }
 
+  /* ---------- view tabs ---------- */
+  .view-tabs{
+    display:flex;
+    gap:6px;
+    margin-bottom:16px;
+    border-bottom:1px solid var(--border);
+  }
+  .view-tab{
+    font-family:'Big Shoulders Display',sans-serif;
+    font-size:16px;
+    letter-spacing:.02em;
+    text-transform:uppercase;
+    font-weight:700;
+    color:var(--ink-soft);
+    background:transparent;
+    border:none;
+    border-bottom:3px solid transparent;
+    padding:9px 4px 10px;
+    margin-right:14px;
+    cursor:pointer;
+  }
+  .view-tab:hover{ color:var(--ink); }
+  .view-tab.active{ color:var(--blue-deep); border-bottom-color:var(--blue-deep); }
+  .view-page{ display:none; }
+  .view-page.active{ display:block; }
+
+  /* ---------- monitoring table ---------- */
+  .monitor-panel{ padding:0; overflow-x:auto; }
+  .monitor-table{ width:100%; border-collapse:collapse; font-size:12.5px; min-width:1740px; }
+  .monitor-table thead th{
+    text-align:left; font-size:10.5px; text-transform:uppercase; letter-spacing:.05em;
+    color:var(--ink-soft); padding:9px 8px; border-bottom:1px solid var(--border);
+    background:#F1EEE2; white-space:nowrap;
+  }
+  .monitor-table tbody td{ padding:5px 6px; border-bottom:1px solid var(--border); vertical-align:middle; }
+  .monitor-table tbody tr:hover{ background:#F8F6EE; }
+  .monitor-table input[type="text"],
+  .monitor-table input[type="date"],
+  .monitor-table select{
+    width:100%;
+    font-family:'Inter',sans-serif;
+    font-size:12px;
+    padding:6px 7px;
+    border:1px solid transparent;
+    border-radius:5px;
+    background:transparent;
+    color:var(--ink);
+    box-sizing:border-box;
+  }
+  .monitor-table .priority-cell, .monitor-table .status-cell{ min-width:130px; }
+  .monitor-table .priority-cell select, .monitor-table .status-cell select{ min-width:118px; }
+  .monitor-table input[type="text"]:hover, .monitor-table input[type="date"]:hover, .monitor-table select:hover{ border-color:var(--border); background:#fff; }
+  .monitor-table input[type="text"]:focus, .monitor-table input[type="date"]:focus, .monitor-table select:focus{ border-color:var(--cyan); background:#fff; outline:none; }
+  .monitor-table .task-name-cell input{ font-weight:600; min-width:150px; }
+  .monitor-table .details-cell input{ min-width:160px; }
+  .monitor-table .poc-cell input, .monitor-table .dev-cell input{ min-width:108px; }
+  .monitor-table .release-cell input{ min-width:90px; }
+  .priority-select{ font-weight:700; }
+  .priority-select.priority-low{ color:var(--slate); }
+  .priority-select.priority-medium{ color:var(--amber); }
+  .priority-select.priority-high{ color:#C9702B; }
+  .priority-select.priority-critical{ color:var(--red); }
+  .monitor-empty{ text-align:center; color:var(--ink-soft); font-style:italic; padding:30px; }
+  .monitor-actions-cell{ white-space:nowrap; text-align:right; }
+  .monitor-del-btn{
+    background:transparent; border:none; cursor:pointer;
+    font-size:14px; padding:4px 7px; border-radius:5px; margin-left:2px;
+    color:var(--red);
+  }
+  .monitor-del-btn:hover{ background:#FCECEB; }
+
+  .monitor-table .remarks-cell{ min-width:230px; }
+  .remarks-widget{ display:flex; flex-direction:column; gap:5px; }
+  .remarks-log-box{
+    max-height:64px;
+    overflow-y:auto;
+    background:#fff;
+    border:1px solid var(--border);
+    border-radius:6px;
+    padding:4px 7px;
+  }
+  .remarks-log-entry{
+    font-size:11px;
+    line-height:1.4;
+    padding:4px 0;
+    border-bottom:1px dashed var(--border);
+    color:var(--ink);
+  }
+  .remarks-log-entry:last-child{ border-bottom:none; }
+  .remarks-log-ts{
+    font-family:'IBM Plex Mono',monospace;
+    font-weight:700;
+    color:var(--ink-soft);
+    font-size:10.5px;
+  }
+  .remarks-log-empty{ font-size:11px; color:var(--ink-soft); font-style:italic; padding:6px 0; }
+  .manage-remarks-btn{
+    align-self:flex-start;
+    font-family:'Inter',sans-serif;
+    font-weight:600;
+    font-size:11px;
+    padding:5px 10px;
+    border-radius:6px;
+    border:1px solid var(--border);
+    background:#E7E4D6;
+    color:var(--ink);
+    cursor:pointer;
+  }
+  .manage-remarks-btn:hover{ background:#DEDAC8; }
+
+  /* ---------- remarks manage modal ---------- */
+  .remarks-modal-log{ max-height:220px; overflow-y:auto; border:1px solid var(--border); border-radius:8px; background:#fff; padding:4px 12px; margin-bottom:14px; }
+  .remarks-modal-entry{ display:flex; align-items:flex-start; justify-content:space-between; gap:10px; padding:9px 0; border-bottom:1px dashed var(--border); }
+  .remarks-modal-entry:last-child{ border-bottom:none; }
+  .remarks-modal-entry-text{ font-size:12.5px; line-height:1.45; }
+  .remarks-modal-entry-text .remarks-log-ts{ display:block; margin-bottom:2px; }
+  .remarks-modal-del{ background:transparent; border:none; color:var(--red); cursor:pointer; font-size:13px; padding:2px 6px; flex-shrink:0; }
+  .remarks-modal-del:hover{ background:#FCECEB; border-radius:5px; }
+  .remarks-modal-add{ display:flex; gap:8px; align-items:flex-end; }
+  .remarks-modal-add textarea{ flex:1; font-family:'Inter',sans-serif; font-size:13px; padding:8px 10px; border:1px solid var(--border); border-radius:7px; resize:vertical; min-height:44px; }
+
   /* ---------- table ---------- */
   .list-panel{ padding:0; }
   table{ width:100%; border-collapse:collapse; font-size:13px; }
@@ -484,6 +605,14 @@
     </div>
   </div>
 
+  <!-- View Tabs -->
+  <div class="view-tabs">
+    <button type="button" class="view-tab active" id="tabScheduleBtn" data-view="schedule">Schedule</button>
+    <button type="button" class="view-tab" id="tabMonitoringBtn" data-view="monitoring">Monitoring</button>
+  </div>
+
+  <div class="view-page active" id="scheduleView">
+
   <div class="toolbar">
     <button class="btn primary" id="openAddTaskBtn">+ Add Task</button>
     <button class="btn amber" id="openAddMilestoneBtn">◆ Add Milestone</button>
@@ -610,6 +739,7 @@
     </div>
   </div>
 
+  <!-- Manage Remarks Modal -->
   <div class="panel list-panel">
     <table>
       <thead>
@@ -645,6 +775,60 @@
     </div>
   </div>
 
+  </div>
+  <!-- /#scheduleView -->
+
+  <!-- Monitoring View -->
+  <div class="view-page" id="monitoringView">
+    <div class="toolbar">
+      <button class="btn primary" id="openAddMonitorBtn">+ Add Task</button>
+      <div class="spacer"></div>
+    </div>
+    <p class="hint">Track task-level progress with priority, dates, revisions, and release checkpoints — edit any cell directly, Excel-style.</p>
+    <div class="panel monitor-panel">
+      <table class="monitor-table">
+        <thead>
+          <tr>
+            <th style="min-width:170px;">Client Name</th>
+            <th style="min-width:180px;">Details</th>
+            <th style="min-width:120px;">POC</th>
+            <th style="min-width:120px;">Dev</th>
+            <th style="min-width:130px;">Priority</th>
+            <th style="min-width:130px;">Status</th>
+            <th>Start Date</th>
+            <th>End Date</th>
+            <th>Revise Date</th>
+            <th>Release 1</th>
+            <th>Release 2</th>
+            <th>Release 3</th>
+            <th style="min-width:160px;">Remarks</th>
+            <th style="text-align:right;">Actions</th>
+          </tr>
+        </thead>
+        <tbody id="monitorBody"></tbody>
+      </table>
+    </div>
+  </div>
+  <!-- /#monitoringView -->
+
+  <!-- Manage Remarks Modal (shared, lives outside the tab pages so it works from either view) -->
+  <div class="modal-overlay" id="remarksModal">
+    <div class="modal-card">
+      <div class="modal-header">
+        <h3 id="remarksModalTitle">Manage Remarks</h3>
+        <button class="btn small ghost" style="color:#fff;border-color:rgba(255,255,255,0.4);" id="closeRemarksModalBtn">✕ Close</button>
+      </div>
+      <div class="modal-body">
+        <input type="hidden" id="remarksModalRowId">
+        <div class="remarks-modal-log" id="remarksModalLog"></div>
+        <div class="remarks-modal-add">
+          <textarea id="remarksModalInput" placeholder="Add a remark…" maxlength="500"></textarea>
+          <button type="button" class="btn small primary" id="addRemarkBtn">+ Add</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
 </div>
 
 <script>
@@ -663,8 +847,34 @@
     return {
       id: uid('proj'),
       name: name,
-      items: []
+      items: [],
+      monitoring: []
     };
+  }
+
+  const PRIORITIES = [
+    { id: 'low', name: 'Low' },
+    { id: 'medium', name: 'Medium' },
+    { id: 'high', name: 'High' },
+    { id: 'critical', name: 'Critical' }
+  ];
+
+  function ensureProjectDefaults(proj){
+    if(!Array.isArray(proj.monitoring)) proj.monitoring = [];
+    proj.monitoring.forEach(row => {
+      if(row.clientName === undefined){
+        row.clientName = row.name || '';
+        delete row.name;
+      }
+      if(row.details === undefined) row.details = '';
+      if(row.poc === undefined) row.poc = '';
+      if(row.dev === undefined) row.dev = '';
+      if(!Array.isArray(row.remarks)){
+        const legacyText = typeof row.remarks === 'string' ? row.remarks.trim() : '';
+        row.remarks = legacyText ? [{ id: uid('rem'), ts: new Date().toISOString(), text: legacyText }] : [];
+      }
+    });
+    return proj;
   }
 
   function loadWorkspace(){
@@ -674,6 +884,7 @@
         const parsed = JSON.parse(saved);
         if(parsed && Array.isArray(parsed.projects)){
           if(!parsed.statuses) parsed.statuses = [...DEFAULT_STATUSES];
+          parsed.projects.forEach(ensureProjectDefaults);
           return parsed;
         }
       }catch(e){}
@@ -947,7 +1158,7 @@
       proj = workspace.projects[0];
       workspace.activeId = proj.id;
     }
-    return proj;
+    return ensureProjectDefaults(proj);
   }
 
   /* ---------------- helpers ---------------- */
@@ -1680,6 +1891,7 @@
         if(parsed && Array.isArray(parsed.projects)){
           workspace = parsed;
           if(!workspace.statuses) workspace.statuses = [...DEFAULT_STATUSES];
+          workspace.projects.forEach(ensureProjectDefaults);
         } else {
           alert('Invalid schedule workspace file.');
           return;
@@ -1695,11 +1907,214 @@
     e.target.value = '';
   });
 
+  /* ---------------- view tabs ---------------- */
+  document.querySelectorAll('.view-tab').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.view-tab').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+      const view = btn.dataset.view;
+      document.getElementById('scheduleView').classList.toggle('active', view === 'schedule');
+      document.getElementById('monitoringView').classList.toggle('active', view === 'monitoring');
+      if(view === 'monitoring') renderMonitor();
+    });
+  });
+
+  /* ---------------- monitoring tab ---------------- */
+  function priorityOptionsHtml(selected){
+    return PRIORITIES.map(p => `<option value="${p.id}" ${p.id === selected ? 'selected' : ''}>${p.name}</option>`).join('');
+  }
+  function statusOptionsHtml(selected){
+    return workspace.statuses.map(s => `<option value="${s.id}" ${s.id === selected ? 'selected' : ''}>${escapeHtml(s.name)}</option>`).join('');
+  }
+
+  function renderMonitor(){
+    const proj = currentProject();
+    const tbody = document.getElementById('monitorBody');
+    tbody.innerHTML = '';
+
+    if(!proj.monitoring.length){
+      tbody.innerHTML = '<tr class="empty-row"><td colspan="14" class="monitor-empty">No monitoring tasks yet. Click "+ Add Task" to start tracking.</td></tr>';
+      return;
+    }
+
+    proj.monitoring.forEach(row => {
+      const tr = document.createElement('tr');
+      tr.dataset.id = row.id;
+      tr.innerHTML = `
+        <td class="task-name-cell"><input type="text" data-field="clientName" value="${escapeHtml(row.clientName || '')}" placeholder="Client name" maxlength="300"></td>
+        <td class="details-cell"><input type="text" data-field="details" value="${escapeHtml(row.details || '')}" placeholder="—" maxlength="500"></td>
+        <td class="poc-cell"><input type="text" data-field="poc" value="${escapeHtml(row.poc || '')}" placeholder="—" maxlength="120"></td>
+        <td class="dev-cell"><input type="text" data-field="dev" value="${escapeHtml(row.dev || '')}" placeholder="—" maxlength="120"></td>
+        <td class="priority-cell"><select data-field="priority" class="priority-select priority-${row.priority || 'medium'}">${priorityOptionsHtml(row.priority || 'medium')}</select></td>
+        <td class="status-cell"><select data-field="status" class="inline-status-select">${statusOptionsHtml(row.status || (workspace.statuses[0] && workspace.statuses[0].id))}</select></td>
+        <td><input type="date" data-field="start" value="${row.start || ''}"></td>
+        <td><input type="date" data-field="end" value="${row.end || ''}"></td>
+        <td><input type="date" data-field="revise" value="${row.revise || ''}"></td>
+        <td class="release-cell"><input type="text" data-field="release1" value="${escapeHtml(row.release1 || '')}" placeholder="—" maxlength="60"></td>
+        <td class="release-cell"><input type="text" data-field="release2" value="${escapeHtml(row.release2 || '')}" placeholder="—" maxlength="60"></td>
+        <td class="release-cell"><input type="text" data-field="release3" value="${escapeHtml(row.release3 || '')}" placeholder="—" maxlength="60"></td>
+        <td class="remarks-cell">${remarksCellHtml(row)}</td>
+        <td class="monitor-actions-cell">
+          <button type="button" class="monitor-del-btn" title="Delete row">✕</button>
+        </td>
+      `;
+
+      tr.querySelectorAll('[data-field]').forEach(el => {
+        el.addEventListener('input', () => {
+          row[el.dataset.field] = el.value;
+          if(el.dataset.field === 'priority') el.className = 'priority-select priority-' + el.value;
+          saveWorkspace();
+        });
+        el.addEventListener('change', () => {
+          row[el.dataset.field] = el.value;
+          saveWorkspace();
+        });
+      });
+
+      tr.querySelector('.monitor-del-btn').addEventListener('click', () => {
+        if(!confirm('Delete this monitoring task?')) return;
+        proj.monitoring = proj.monitoring.filter(r => r.id !== row.id);
+        saveWorkspace();
+        renderMonitor();
+      });
+
+      const manageBtn = tr.querySelector('.manage-remarks-btn');
+      if(manageBtn){
+        manageBtn.addEventListener('click', () => openRemarksModal(row.id));
+      }
+
+      tbody.appendChild(tr);
+    });
+  }
+
+  /* ---------------- remarks (activity log) ---------------- */
+  function formatRemarkTimestamp(iso){
+    const d = new Date(iso);
+    if(isNaN(d)) return '';
+    return d.toLocaleString('en-US', {
+      month: 'numeric', day: 'numeric', year: 'numeric',
+      hour: 'numeric', minute: '2-digit', second: '2-digit', hour12: true
+    });
+  }
+
+  function remarksCellHtml(row){
+    const entries = Array.isArray(row.remarks) ? row.remarks : [];
+    let logHtml;
+    if(!entries.length){
+      logHtml = '<div class="remarks-log-empty">No remarks yet.</div>';
+    } else {
+      logHtml = entries.map(e => `
+        <div class="remarks-log-entry"><span class="remarks-log-ts">[${formatRemarkTimestamp(e.ts)}]</span> ${escapeHtml(e.text)}</div>
+      `).join('');
+    }
+    return `
+      <div class="remarks-widget">
+        <div class="remarks-log-box">${logHtml}</div>
+        <button type="button" class="manage-remarks-btn">Manage Remarks</button>
+      </div>
+    `;
+  }
+
+  const remarksModal = document.getElementById('remarksModal');
+
+  function renderRemarksModalLog(row){
+    const logEl = document.getElementById('remarksModalLog');
+    const entries = Array.isArray(row.remarks) ? row.remarks : [];
+    if(!entries.length){
+      logEl.innerHTML = '<div class="remarks-log-empty">No remarks yet.</div>';
+      return;
+    }
+    logEl.innerHTML = entries.map(e => `
+      <div class="remarks-modal-entry" data-remark-id="${e.id}">
+        <div class="remarks-modal-entry-text"><span class="remarks-log-ts">[${formatRemarkTimestamp(e.ts)}]</span>${escapeHtml(e.text)}</div>
+        <button type="button" class="remarks-modal-del" title="Delete remark">✕</button>
+      </div>
+    `).join('');
+    logEl.querySelectorAll('.remarks-modal-del').forEach(btn => {
+      btn.addEventListener('click', () => {
+        const entryEl = btn.closest('[data-remark-id]');
+        const remarkId = entryEl.dataset.remarkId;
+        row.remarks = row.remarks.filter(r => r.id !== remarkId);
+        saveWorkspace();
+        renderRemarksModalLog(row);
+        renderMonitor();
+      });
+    });
+    logEl.scrollTop = logEl.scrollHeight;
+  }
+
+  function openRemarksModal(rowId){
+    const proj = currentProject();
+    const row = proj.monitoring.find(r => r.id === rowId);
+    if(!row) return;
+    if(!Array.isArray(row.remarks)) row.remarks = [];
+    document.getElementById('remarksModalRowId').value = rowId;
+    document.getElementById('remarksModalInput').value = '';
+    renderRemarksModalLog(row);
+    remarksModal.classList.add('open');
+    document.getElementById('remarksModalInput').focus();
+  }
+
+  function closeRemarksModal(){
+    remarksModal.classList.remove('open');
+  }
+
+  document.getElementById('closeRemarksModalBtn').addEventListener('click', closeRemarksModal);
+  remarksModal.addEventListener('click', (e) => {
+    if(e.target === remarksModal) closeRemarksModal();
+  });
+
+  document.getElementById('addRemarkBtn').addEventListener('click', () => {
+    const proj = currentProject();
+    const rowId = document.getElementById('remarksModalRowId').value;
+    const row = proj.monitoring.find(r => r.id === rowId);
+    if(!row) return;
+    const input = document.getElementById('remarksModalInput');
+    const text = input.value.trim();
+    if(!text) return;
+    if(!Array.isArray(row.remarks)) row.remarks = [];
+    row.remarks.push({ id: uid('rem'), ts: new Date().toISOString(), text });
+    saveWorkspace();
+    input.value = '';
+    renderRemarksModalLog(row);
+    renderMonitor();
+    input.focus();
+  });
+
+  document.getElementById('openAddMonitorBtn').addEventListener('click', () => {
+    const proj = currentProject();
+    proj.monitoring.push({
+      id: uid('mon'),
+      clientName: '',
+      details: '',
+      poc: '',
+      dev: '',
+      priority: 'medium',
+      status: (workspace.statuses[0] && workspace.statuses[0].id) || '',
+      start: '',
+      end: '',
+      revise: '',
+      release1: '',
+      release2: '',
+      release3: '',
+      remarks: []
+    });
+    saveWorkspace();
+    renderMonitor();
+    const rows = document.querySelectorAll('#monitorBody tr');
+    const lastRow = rows[rows.length - 1];
+    if(lastRow){
+      const nameInput = lastRow.querySelector('[data-field="clientName"]');
+      if(nameInput) nameInput.focus();
+    }
+  });
+
   function renderAll(){
     renderProjectDropdown();
     renderSummary();
     renderList();
     renderGantt();
+    renderMonitor();
   }
   renderAll();
 </script>
