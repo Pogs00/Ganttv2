@@ -46,7 +46,7 @@
           "id": "it_cnsu7xx",
           "type": "task",
           "parentId": "it_6k1y48w",
-          "name": "Determine the specific Aloha version + exact plugin/report/e-journal combo",
+          "name": "Determine the official target Aloha version, along with the exact approved plugin, reporting tools, and e-journal configuration",
           "start": "2026-08-24",
           "end": "2026-08-26",
           "revisedEnd": "",
@@ -56,18 +56,6 @@
           "resources": [
             "Jaymark"
           ]
-        },
-        {
-          "id": "it_ez9sxtb",
-          "type": "task",
-          "parentId": "it_6k1y48w",
-          "name": "NCR Submission & Version Checking",
-          "start": "2026-08-25",
-          "end": "2026-08-26",
-          "revisedEnd": "",
-          "status": "not-started",
-          "notes": "",
-          "progress": 0
         },
         {
           "id": "it_trlkgfd",
