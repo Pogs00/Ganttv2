@@ -181,7 +181,13 @@
           "release1": "",
           "release2": "",
           "release3": "",
-          "remarks": []
+          "remarks": [
+            {
+              "id": "rem_jmvm9j3",
+              "ts": "2026-08-21T09:03:13.382Z",
+              "text": "xzx"
+            }
+          ]
         },
         {
           "id": "mon_olehg2w",
