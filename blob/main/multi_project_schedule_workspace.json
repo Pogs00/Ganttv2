@@ -158,7 +158,7 @@
         {
           "id": "mon_mm2uce9",
           "name": "z",
-          "priority": "medium",
+          "priority": "critical",
           "status": "not-started",
           "start": "",
           "end": "",
