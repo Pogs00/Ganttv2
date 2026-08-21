@@ -154,7 +154,30 @@
           "progress": 0
         }
       ],
-      "monitoring": []
+      "monitoring": [
+        {
+          "id": "mon_si627rc",
+          "clientName": "aa",
+          "details": "sdsdsd",
+          "poc": "law",
+          "dev": "kent",
+          "priority": "medium",
+          "status": "not-started",
+          "start": "",
+          "end": "",
+          "revise": "",
+          "release1": "",
+          "release2": "",
+          "release3": "",
+          "remarks": [
+            {
+              "id": "rem_mbh7b1x",
+              "ts": "2026-08-21T09:08:02.857Z",
+              "text": "sdsd"
+            }
+          ]
+        }
+      ]
     }
   ],
   "statuses": [
