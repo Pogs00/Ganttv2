@@ -156,40 +156,6 @@
       ],
       "monitoring": [
         {
-          "id": "mon_xkibyhf",
-          "clientName": "zzz",
-          "details": "zzz",
-          "priority": "low",
-          "status": "completed",
-          "start": "",
-          "end": "",
-          "revise": "",
-          "release1": "",
-          "release2": "",
-          "release3": "",
-          "remarks": []
-        },
-        {
-          "id": "mon_3vvok4f",
-          "clientName": "aaa",
-          "details": "aa",
-          "priority": "medium",
-          "status": "not-started",
-          "start": "",
-          "end": "",
-          "revise": "",
-          "release1": "",
-          "release2": "",
-          "release3": "",
-          "remarks": [
-            {
-              "id": "rem_jmvm9j3",
-              "ts": "2026-08-21T09:03:13.382Z",
-              "text": "xzx"
-            }
-          ]
-        },
-        {
           "id": "mon_olehg2w",
           "clientName": "",
           "details": "",
