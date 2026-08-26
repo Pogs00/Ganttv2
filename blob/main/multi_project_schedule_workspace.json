@@ -154,7 +154,24 @@
           "progress": 0
         }
       ],
-      "monitoring": []
+      "monitoring": [
+        {
+          "id": "mon_aqeyzq2",
+          "clientName": "New Client",
+          "details": "Aloha v19.9 testing",
+          "poc": "Jay",
+          "dev": "",
+          "priority": "medium",
+          "status": "not-started",
+          "start": "",
+          "end": "",
+          "revise": "",
+          "release1": "",
+          "release2": "",
+          "release3": "",
+          "remarks": []
+        }
+      ]
     }
   ],
   "statuses": [
