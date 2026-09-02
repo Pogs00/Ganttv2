@@ -226,7 +226,7 @@
           "status": "in-progress",
           "notes": "",
           "resources": [],
-          "progress": 0
+          "progress": 50
         },
         {
           "id": "it_a5kt933",
@@ -324,6 +324,21 @@
           "notes": "Unit will arrived with the owner on June 22\n- Waiting for COR\n08/28 - Let's attorney is coordinating with the BIR for this one",
           "resources": [
             "Lawrence"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_p87ljrf",
+          "type": "task",
+          "parentId": "it_14ypwla",
+          "name": "NCR license activation",
+          "start": "2026-06-05",
+          "end": "2026-06-05",
+          "revisedEnd": "",
+          "status": "completed",
+          "notes": "",
+          "resources": [
+            "Mitch"
           ],
           "progress": 0
         }
