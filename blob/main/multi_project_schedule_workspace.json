@@ -226,7 +226,7 @@
           "status": "in-progress",
           "notes": "",
           "resources": [],
-          "progress": 50
+          "progress": 67
         },
         {
           "id": "it_a5kt933",
@@ -339,6 +339,21 @@
           "notes": "",
           "resources": [
             "Mitch"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_xgbexwn",
+          "type": "task",
+          "parentId": "it_14ypwla",
+          "name": "Preparation and setup of store hardware",
+          "start": "2026-07-15",
+          "end": "2026-07-15",
+          "revisedEnd": "2026-07-21",
+          "status": "completed",
+          "notes": "",
+          "resources": [
+            "Lawrence"
           ],
           "progress": 0
         }
