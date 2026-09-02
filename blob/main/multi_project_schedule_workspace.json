@@ -260,7 +260,7 @@
           "parentId": "",
           "name": "PROJECT INITIATION",
           "start": "2026-05-26",
-          "end": "2026-05-26",
+          "end": "2026-06-01",
           "revisedEnd": "",
           "status": "completed",
           "notes": "",
@@ -280,6 +280,19 @@
           "resources": [
             "All stakeholders"
           ],
+          "progress": 0
+        },
+        {
+          "id": "it_klpq43h",
+          "type": "task",
+          "parentId": "it_101qk7a",
+          "name": "Business Process Review",
+          "start": "2026-06-01",
+          "end": "2026-06-01",
+          "revisedEnd": "",
+          "status": "completed",
+          "notes": "All stakeholders",
+          "resources": [],
           "progress": 0
         }
       ],
