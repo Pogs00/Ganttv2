@@ -221,12 +221,12 @@
           "parentId": "",
           "name": "PREPARATION, DEVELOPMENT AND TRAINING",
           "start": "2026-06-05",
-          "end": "2026-07-24",
+          "end": "2026-08-13",
           "revisedEnd": "",
           "status": "in-progress",
           "notes": "",
           "resources": [],
-          "progress": 50
+          "progress": 40
         },
         {
           "id": "it_a5kt933",
@@ -370,6 +370,21 @@
           "resources": [
             "Lawrence",
             "Kent"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_3rivcaf",
+          "type": "task",
+          "parentId": "it_14ypwla",
+          "name": "User acceptance testing (UAT)",
+          "start": "2026-07-27",
+          "end": "2026-07-27",
+          "revisedEnd": "2026-08-13",
+          "status": "delayed",
+          "notes": "For confirmation of the new timeline",
+          "resources": [
+            "All stakeholders"
           ],
           "progress": 0
         }
