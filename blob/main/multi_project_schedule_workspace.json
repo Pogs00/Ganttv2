@@ -214,7 +214,47 @@
     {
       "id": "proj_rgy3kj0",
       "name": "Let's Eat",
-      "items": [],
+      "items": [
+        {
+          "id": "it_14ypwla",
+          "type": "milestone",
+          "parentId": "",
+          "name": "PREPARATION, DEVELOPMENT AND TRAINING",
+          "start": "",
+          "end": "",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [],
+          "progress": 0
+        },
+        {
+          "id": "it_a5kt933",
+          "type": "milestone",
+          "parentId": "",
+          "name": "GO LIVE AND ROLLOUT",
+          "start": "",
+          "end": "",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [],
+          "progress": 0
+        },
+        {
+          "id": "it_xfecrt3",
+          "type": "milestone",
+          "parentId": "",
+          "name": "HANDOVER & SIGN-OFF",
+          "start": "",
+          "end": "",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [],
+          "progress": 0
+        }
+      ],
       "monitoring": []
     }
   ],
