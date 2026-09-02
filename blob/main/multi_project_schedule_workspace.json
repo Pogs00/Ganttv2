@@ -260,7 +260,7 @@
           "parentId": "",
           "name": "PROJECT INITIATION",
           "start": "2026-05-26",
-          "end": "2026-06-01",
+          "end": "2026-07-31",
           "revisedEnd": "",
           "status": "completed",
           "notes": "",
@@ -291,8 +291,25 @@
           "end": "2026-06-01",
           "revisedEnd": "",
           "status": "completed",
-          "notes": "All stakeholders",
-          "resources": [],
+          "notes": "",
+          "resources": [
+            "All stakeholders"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_3ngztyu",
+          "type": "task",
+          "parentId": "it_101qk7a",
+          "name": "BPR Presentation and Sign Off",
+          "start": "2026-06-03",
+          "end": "2026-06-03",
+          "revisedEnd": "2026-07-31",
+          "status": "completed",
+          "notes": "Moved due to pending details in BPR that need internal discussion of Let's team, waiting for client's preferred date\n08/03 - Sent the BRD for signatory\n08/25 - BRD approved and signed",
+          "resources": [
+            "All stakeholders"
+          ],
           "progress": 0
         }
       ],
