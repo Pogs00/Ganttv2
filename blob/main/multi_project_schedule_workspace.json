@@ -253,6 +253,19 @@
           "notes": "",
           "resources": [],
           "progress": 0
+        },
+        {
+          "id": "it_101qk7a",
+          "type": "milestone",
+          "parentId": "",
+          "name": "PROJECT INITIATION",
+          "start": "",
+          "end": "",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [],
+          "progress": 0
         }
       ],
       "monitoring": []
