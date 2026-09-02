@@ -501,12 +501,12 @@
       "monitoring": [
         {
           "id": "mon_q4rgh7p",
-          "clientName": "Let",
-          "details": "",
-          "poc": "",
+          "clientName": "Let's Eat",
+          "details": "SOK ",
+          "poc": "Lawrence",
           "dev": "",
-          "priority": "medium",
-          "status": "not-started",
+          "priority": "high",
+          "status": "in-progress",
           "start": "",
           "end": "",
           "revise": "",
