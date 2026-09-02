@@ -450,6 +450,22 @@
             "Lawrence"
           ],
           "progress": 0
+        },
+        {
+          "id": "it_f617wjp",
+          "type": "task",
+          "parentId": "it_a5kt933",
+          "name": "Mall Interface Installation",
+          "start": "2026-08-06",
+          "end": "2026-08-06",
+          "revisedEnd": "2026-09-03",
+          "status": "not-started",
+          "notes": "For confirmation of the new timeline",
+          "resources": [
+            "Lawrence",
+            "Mall Interface Team"
+          ],
+          "progress": 0
         }
       ],
       "monitoring": []
