@@ -246,8 +246,8 @@
           "type": "milestone",
           "parentId": "",
           "name": "HANDOVER & SIGN-OFF",
-          "start": "",
-          "end": "",
+          "start": "2026-08-14",
+          "end": "2026-09-11",
           "revisedEnd": "",
           "status": "not-started",
           "notes": "",
@@ -464,6 +464,21 @@
           "resources": [
             "Lawrence",
             "Mall Interface Team"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_q8e3xab",
+          "type": "task",
+          "parentId": "it_xfecrt3",
+          "name": "Documentations and Project Sign-off",
+          "start": "2026-08-14",
+          "end": "2026-08-14",
+          "revisedEnd": "2026-09-11",
+          "status": "not-started",
+          "notes": "",
+          "resources": [
+            "Lawrence"
           ],
           "progress": 0
         }
