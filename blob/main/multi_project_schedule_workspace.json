@@ -221,12 +221,12 @@
           "parentId": "",
           "name": "PREPARATION, DEVELOPMENT AND TRAINING",
           "start": "2026-06-05",
-          "end": "2026-08-28",
+          "end": "2026-08-31",
           "revisedEnd": "",
           "status": "in-progress",
           "notes": "",
           "resources": [],
-          "progress": 33
+          "progress": 29
         },
         {
           "id": "it_a5kt933",
@@ -401,6 +401,23 @@
           "resources": [
             "Lawrence",
             "Hardware Team"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_0sm56yu",
+          "type": "task",
+          "parentId": "it_14ypwla",
+          "name": "User's Training (Preparation, HO and Store User)",
+          "start": "2026-08-03",
+          "end": "2026-08-03",
+          "revisedEnd": "2026-08-31",
+          "status": "delayed",
+          "notes": "",
+          "resources": [
+            "Lawrence",
+            "Store Manager",
+            "Store Cashier"
           ],
           "progress": 0
         }
