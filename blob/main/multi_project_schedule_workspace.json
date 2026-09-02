@@ -233,10 +233,10 @@
           "type": "milestone",
           "parentId": "",
           "name": "GO LIVE AND ROLLOUT",
-          "start": "",
-          "end": "",
+          "start": "2026-08-05",
+          "end": "2026-09-01",
           "revisedEnd": "",
-          "status": "not-started",
+          "status": "in-progress",
           "notes": "",
           "resources": [],
           "progress": 0
@@ -418,6 +418,21 @@
             "Lawrence",
             "Store Manager",
             "Store Cashier"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_bvf28br",
+          "type": "task",
+          "parentId": "it_a5kt933",
+          "name": "Store setup and simulation",
+          "start": "2026-08-05",
+          "end": "2026-08-05",
+          "revisedEnd": "2026-09-01",
+          "status": "delayed",
+          "notes": "",
+          "resources": [
+            "Lawrence"
           ],
           "progress": 0
         }
