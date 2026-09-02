@@ -259,12 +259,27 @@
           "type": "milestone",
           "parentId": "",
           "name": "PROJECT INITIATION",
-          "start": "",
-          "end": "",
+          "start": "2026-05-26",
+          "end": "2026-05-26",
           "revisedEnd": "",
-          "status": "not-started",
+          "status": "completed",
           "notes": "",
           "resources": [],
+          "progress": 100
+        },
+        {
+          "id": "it_9bogr6y",
+          "type": "task",
+          "parentId": "it_101qk7a",
+          "name": "Project Kick Off",
+          "start": "2026-05-26",
+          "end": "2026-05-26",
+          "revisedEnd": "",
+          "status": "completed",
+          "notes": "",
+          "resources": [
+            "All stakeholders"
+          ],
           "progress": 0
         }
       ],
