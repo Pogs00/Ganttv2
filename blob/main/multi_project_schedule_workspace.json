@@ -234,7 +234,7 @@
           "parentId": "",
           "name": "GO LIVE AND ROLLOUT",
           "start": "2026-08-05",
-          "end": "2026-09-03",
+          "end": "2026-09-18",
           "revisedEnd": "",
           "status": "in-progress",
           "notes": "",
@@ -428,9 +428,9 @@
           "name": "Store setup and simulation",
           "start": "2026-08-05",
           "end": "2026-08-05",
-          "revisedEnd": "2026-09-01",
+          "revisedEnd": "2026-09-18",
           "status": "delayed",
-          "notes": "For confirmation of the new timeline",
+          "notes": "For confirmation of the new timeline\n09/02 - Old revised date 09/01/2026",
           "resources": [
             "Lawrence"
           ],
