@@ -247,7 +247,7 @@
           "parentId": "",
           "name": "HANDOVER & SIGN-OFF",
           "start": "2026-08-14",
-          "end": "2026-09-14",
+          "end": "2026-09-25",
           "revisedEnd": "",
           "status": "not-started",
           "notes": "",
@@ -458,9 +458,9 @@
           "name": "Mall Interface Installation",
           "start": "2026-08-06",
           "end": "2026-08-06",
-          "revisedEnd": "2026-09-03",
+          "revisedEnd": "2026-09-21",
           "status": "not-started",
-          "notes": "For confirmation of the new timeline",
+          "notes": "For confirmation of the new timeline\n09/02 - Old revised date 09/03/2026",
           "resources": [
             "Lawrence",
             "Mall Interface Team"
@@ -474,9 +474,9 @@
           "name": "Documentations and Project Sign-off",
           "start": "2026-08-14",
           "end": "2026-08-14",
-          "revisedEnd": "2026-09-11",
+          "revisedEnd": "2026-09-25",
           "status": "not-started",
-          "notes": "",
+          "notes": "09/02 - Old revised date 09/11/2026",
           "resources": [
             "Lawrence"
           ],
