@@ -247,7 +247,7 @@
           "parentId": "",
           "name": "HANDOVER & SIGN-OFF",
           "start": "2026-08-14",
-          "end": "2026-09-25",
+          "end": "2026-09-28",
           "revisedEnd": "",
           "status": "not-started",
           "notes": "",
@@ -489,9 +489,9 @@
           "name": "Handover to support",
           "start": "2026-08-17",
           "end": "2026-08-17",
-          "revisedEnd": "2026-09-14",
+          "revisedEnd": "2026-09-28",
           "status": "not-started",
-          "notes": "",
+          "notes": "09/02 - Old revised date 09/14/2026",
           "resources": [
             "Lawrence"
           ],
