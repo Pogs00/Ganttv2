@@ -513,7 +513,13 @@
           "release1": "",
           "release2": "",
           "release3": "",
-          "remarks": []
+          "remarks": [
+            {
+              "id": "rem_iumc5r5",
+              "ts": "2026-09-03T04:50:19.785Z",
+              "text": "Kent will start the configuration today"
+            }
+          ]
         },
         {
           "id": "mon_mxne7cd",
@@ -529,7 +535,13 @@
           "release1": "",
           "release2": "",
           "release3": "",
-          "remarks": []
+          "remarks": [
+            {
+              "id": "rem_111v7th",
+              "ts": "2026-09-03T04:50:35.478Z",
+              "text": "Kent will start the installation today"
+            }
+          ]
         }
       ]
     }
