@@ -532,7 +532,7 @@
           "start": "2026-08-28",
           "end": "2026-09-04",
           "revise": "",
-          "release1": "",
+          "release1": "09/08/2026",
           "release2": "",
           "release3": "",
           "remarks": [
@@ -540,6 +540,11 @@
               "id": "rem_111v7th",
               "ts": "2026-09-03T04:50:35.478Z",
               "text": "Kent will start the installation today"
+            },
+            {
+              "id": "rem_3qj49bs",
+              "ts": "2026-09-07T23:14:28.546Z",
+              "text": "Completed yesterday"
             }
           ]
         }
