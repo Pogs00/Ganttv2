@@ -366,7 +366,7 @@
           "end": "2026-07-17",
           "revisedEnd": "2026-07-24",
           "status": "in-progress",
-          "notes": "Pending menuX design and images\n08/28 - S' Rob approved the placeholder design\n09/02 - Marketing team still working with the assets",
+          "notes": "Pending menuX design and images\n08/28 - S' Rob approved the placeholder design\n09/02 - Marketing team still working with the assets\n09/07 - Completed the digital menu board installation - for testing",
           "resources": [
             "Lawrence",
             "Kent"
@@ -509,7 +509,7 @@
           "status": "in-progress",
           "start": "2026-08-28",
           "end": "2026-09-04",
-          "revise": "",
+          "revise": "2026-09-09",
           "release1": "",
           "release2": "",
           "release3": "",
@@ -528,10 +528,10 @@
           "poc": "Lawrence",
           "dev": "Kent",
           "priority": "high",
-          "status": "not-started",
+          "status": "completed",
           "start": "2026-08-28",
           "end": "2026-09-04",
-          "revise": "",
+          "revise": "2026-09-09",
           "release1": "09/08/2026",
           "release2": "",
           "release3": "",
@@ -547,6 +547,22 @@
               "text": "Completed yesterday"
             }
           ]
+        },
+        {
+          "id": "mon_1fndzvq",
+          "clientName": "Let's Eat",
+          "details": "BIR Report Utility",
+          "poc": "Lawrence",
+          "dev": "Nelson",
+          "priority": "high",
+          "status": "not-started",
+          "start": "2026-09-08",
+          "end": "2026-09-11",
+          "revise": "",
+          "release1": "",
+          "release2": "",
+          "release3": "",
+          "remarks": []
         }
       ]
     }
