@@ -936,7 +936,46 @@
           "progress": 0
         }
       ],
-      "monitoring": []
+      "monitoring": [
+        {
+          "id": "mon_dhzgukg",
+          "clientName": "Torikizoku Serendra",
+          "details": "Customize KDS",
+          "poc": "Lawrence, Mark",
+          "dev": "Von",
+          "priority": "high",
+          "status": "in-progress",
+          "start": "2026-06-29",
+          "end": "2026-08-28",
+          "revise": "2026-09-04",
+          "release1": "",
+          "release2": "",
+          "release3": "",
+          "remarks": [
+            {
+              "id": "rem_u1fpmk8",
+              "ts": "2026-09-08T00:31:52.674Z",
+              "text": "3 For testing and 4 Failed"
+            }
+          ]
+        },
+        {
+          "id": "mon_6mgdwxp",
+          "clientName": "Torikizoku Serendra",
+          "details": "BIR Report Utility",
+          "poc": "Lawrence",
+          "dev": "Nelson",
+          "priority": "high",
+          "status": "not-started",
+          "start": "2026-09-08",
+          "end": "2026-09-11",
+          "revise": "",
+          "release1": "",
+          "release2": "",
+          "release3": "",
+          "remarks": []
+        }
+      ]
     }
   ],
   "statuses": [
