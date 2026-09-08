@@ -588,13 +588,13 @@
           "type": "milestone",
           "parentId": "",
           "name": "PREPARATION, DEVELOPMENT AND TRAINING",
-          "start": "2026-09-01",
-          "end": "2026-09-15",
+          "start": "2026-07-07",
+          "end": "2026-09-12",
           "revisedEnd": "",
-          "status": "completed",
+          "status": "in-progress",
           "notes": "",
           "resources": [],
-          "progress": 100
+          "progress": 80
         },
         {
           "id": "it_65hwgrv",
@@ -692,9 +692,54 @@
           "name": "NCR Licence Activation",
           "start": "2026-09-01",
           "end": "2026-09-15",
-          "revisedEnd": "",
+          "revisedEnd": "2026-09-12",
           "status": "completed",
           "notes": "7/6 - Order inprogress\n9/1 - Done",
+          "resources": [
+            "Lawrence"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_uqduh57",
+          "type": "task",
+          "parentId": "it_ejf363y",
+          "name": "Preparation of pilot store unit",
+          "start": "2026-07-15",
+          "end": "2026-07-15",
+          "revisedEnd": "",
+          "status": "completed",
+          "notes": "6/24 - Available\n7/21 - Received the unit and POS\n7/24 - Done installation on the actual unit",
+          "resources": [
+            "Lawrence"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_4wfqvb4",
+          "type": "task",
+          "parentId": "it_ejf363y",
+          "name": "System Designing and Testing Phase",
+          "start": "2026-07-15",
+          "end": "2026-07-17",
+          "revisedEnd": "2026-08-07",
+          "status": "in-progress",
+          "notes": "6/24 - 2 manpower\n7/24 - Done installation. No actual item yet\n7/27 - Item list must be provided before August 7. With review of list then proceed to setup in actual\n8/4 - Sent the partial items",
+          "resources": [
+            "Lawrence"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_k1uobez",
+          "type": "task",
+          "parentId": "it_ejf363y",
+          "name": "menuX® (Tablet and QR)",
+          "start": "2026-07-07",
+          "end": "2026-07-07",
+          "revisedEnd": "2026-08-07",
+          "status": "completed",
+          "notes": "8/15 - Done",
           "resources": [
             "Lawrence"
           ],
