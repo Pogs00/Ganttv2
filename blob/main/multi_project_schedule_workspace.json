@@ -589,20 +589,20 @@
           "parentId": "",
           "name": "PREPARATION, DEVELOPMENT AND TRAINING",
           "start": "2026-06-29",
-          "end": "2026-09-12",
+          "end": "2026-10-02",
           "revisedEnd": "",
           "status": "in-progress",
           "notes": "",
           "resources": [],
-          "progress": 63
+          "progress": 45
         },
         {
           "id": "it_65hwgrv",
           "type": "milestone",
           "parentId": "",
           "name": "GO LIVE AND ROLLOUT",
-          "start": "",
-          "end": "",
+          "start": "2026-10-07",
+          "end": "2026-10-13",
           "revisedEnd": "",
           "status": "not-started",
           "notes": "",
@@ -614,8 +614,8 @@
           "type": "milestone",
           "parentId": "",
           "name": "HANDOVER & SIGN-OFF",
-          "start": "",
-          "end": "",
+          "start": "2026-10-20",
+          "end": "2026-10-21",
           "revisedEnd": "",
           "status": "not-started",
           "notes": "",
@@ -790,6 +790,148 @@
           "notes": "",
           "resources": [
             "genieX HW Team"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_hgrttsp",
+          "type": "task",
+          "parentId": "it_ejf363y",
+          "name": "User's Training (Preparation, HO and Store User)",
+          "start": "2026-10-02",
+          "end": "2026-10-02",
+          "revisedEnd": "2026-09-18",
+          "status": "not-started",
+          "notes": "",
+          "resources": [
+            "Lawrence",
+            "Mark"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_mou097h",
+          "type": "task",
+          "parentId": "it_ejf363y",
+          "name": "EHG Store Checking, setup for store full testing (KDS, Tablet and POS)",
+          "start": "2026-09-24",
+          "end": "2026-09-24",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [
+            "Lawrence",
+            "Mark"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_88d7jzz",
+          "type": "task",
+          "parentId": "it_ejf363y",
+          "name": "Sign Off UAT",
+          "start": "2026-10-02",
+          "end": "2026-10-02",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [
+            "Lawrence",
+            "Mark"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_bavizak",
+          "type": "task",
+          "parentId": "it_65hwgrv",
+          "name": "Store Setup and Simulation",
+          "start": "2026-10-07",
+          "end": "2026-10-07",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [
+            "Lawrence",
+            "Mark"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_uoif5hb",
+          "type": "task",
+          "parentId": "it_65hwgrv",
+          "name": "Stress Testing  (KDS, Tablet and POS)",
+          "start": "2026-10-08",
+          "end": "2026-10-09",
+          "revisedEnd": "2026-10-06",
+          "status": "not-started",
+          "notes": "",
+          "resources": [
+            "Lawrence",
+            "Mark"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_h152gq3",
+          "type": "task",
+          "parentId": "it_65hwgrv",
+          "name": "Standby Support",
+          "start": "2026-10-12",
+          "end": "2026-10-13",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [
+            "Lawrence"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_egfk2ac",
+          "type": "task",
+          "parentId": "it_65hwgrv",
+          "name": "Mall Interface Installation",
+          "start": "2026-10-13",
+          "end": "2026-10-13",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [
+            "Lawrence",
+            "Mall Tool Team"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_mu0qar1",
+          "type": "task",
+          "parentId": "it_m90w8zz",
+          "name": "Documentations and Project Sign-off",
+          "start": "2026-10-20",
+          "end": "2026-10-20",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [
+            "Lawrence",
+            "Mark"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_weuhow2",
+          "type": "task",
+          "parentId": "it_m90w8zz",
+          "name": "Handover to support",
+          "start": "2026-10-21",
+          "end": "2026-10-21",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [
+            "Lawrence"
           ],
           "progress": 0
         }
