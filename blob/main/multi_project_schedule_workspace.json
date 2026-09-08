@@ -588,13 +588,13 @@
           "type": "milestone",
           "parentId": "",
           "name": "PREPARATION, DEVELOPMENT AND TRAINING",
-          "start": "",
-          "end": "",
+          "start": "2026-09-01",
+          "end": "2026-09-15",
           "revisedEnd": "",
-          "status": "not-started",
+          "status": "completed",
           "notes": "",
           "resources": [],
-          "progress": 0
+          "progress": 100
         },
         {
           "id": "it_65hwgrv",
@@ -667,6 +667,36 @@
           "resources": [
             "Lawrence",
             "Mark"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_tjbwbuo",
+          "type": "task",
+          "parentId": "it_ejf363y",
+          "name": "BIR application for the pilot stores",
+          "start": "2026-09-07",
+          "end": "2026-09-11",
+          "revisedEnd": "2026-09-12",
+          "status": "completed",
+          "notes": "7/06 - COR received, waiting for server details for application\n7/21 - Received the unit and POS. Can Apply\n8/4 - Approved the permit\nRegistered name : GOLDEN TORI VENTURES CORPORATION\nSerial no.:  085005260418031\nTin: 678-403-707-00001\nPermit no:  FP082026-044-0626639-00001\nMin no: 26080411190468367\nEffective Date: AUGUST 04, 2026",
+          "resources": [
+            "Lawrence"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_t6gavdb",
+          "type": "task",
+          "parentId": "it_ejf363y",
+          "name": "NCR Licence Activation",
+          "start": "2026-09-01",
+          "end": "2026-09-15",
+          "revisedEnd": "",
+          "status": "completed",
+          "notes": "7/6 - Order inprogress\n9/1 - Done",
+          "resources": [
+            "Lawrence"
           ],
           "progress": 0
         }
