@@ -1,5 +1,5 @@
 {
-  "activeId": "proj_rgy3kj0",
+  "activeId": "proj_qomaazw",
   "projects": [
     {
       "id": "proj_bc9sc91",
@@ -565,6 +565,65 @@
           "remarks": []
         }
       ]
+    },
+    {
+      "id": "proj_qomaazw",
+      "name": "Torikizoku Serendra",
+      "items": [
+        {
+          "id": "it_70x94js",
+          "type": "milestone",
+          "parentId": "",
+          "name": "PROJECT INITIATION",
+          "start": "",
+          "end": "",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [],
+          "progress": 0
+        },
+        {
+          "id": "it_ejf363y",
+          "type": "milestone",
+          "parentId": "",
+          "name": "PREPARATION, DEVELOPMENT AND TRAINING",
+          "start": "",
+          "end": "",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [],
+          "progress": 0
+        },
+        {
+          "id": "it_65hwgrv",
+          "type": "milestone",
+          "parentId": "",
+          "name": "GO LIVE AND ROLLOUT",
+          "start": "",
+          "end": "",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [],
+          "progress": 0
+        },
+        {
+          "id": "it_m90w8zz",
+          "type": "milestone",
+          "parentId": "",
+          "name": "HANDOVER & SIGN-OFF",
+          "start": "",
+          "end": "",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [],
+          "progress": 0
+        }
+      ],
+      "monitoring": []
     }
   ],
   "statuses": [
