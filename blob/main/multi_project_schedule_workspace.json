@@ -588,13 +588,13 @@
           "type": "milestone",
           "parentId": "",
           "name": "PREPARATION, DEVELOPMENT AND TRAINING",
-          "start": "2026-07-07",
+          "start": "2026-06-29",
           "end": "2026-09-12",
           "revisedEnd": "",
           "status": "in-progress",
           "notes": "",
           "resources": [],
-          "progress": 80
+          "progress": 63
         },
         {
           "id": "it_65hwgrv",
@@ -742,6 +742,54 @@
           "notes": "8/15 - Done",
           "resources": [
             "Lawrence"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_gw9mvau",
+          "type": "task",
+          "parentId": "it_ejf363y",
+          "name": "Plugin Development and Testing (KDS Development)",
+          "start": "2026-06-29",
+          "end": "2026-08-28",
+          "revisedEnd": "",
+          "status": "in-progress",
+          "notes": "",
+          "resources": [
+            "Development Team"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_3aj9tf1",
+          "type": "task",
+          "parentId": "it_ejf363y",
+          "name": "User Acceptance Test/ Functional testing 1",
+          "start": "2026-08-25",
+          "end": "2026-08-27",
+          "revisedEnd": "",
+          "status": "completed",
+          "notes": "7/27 - To use the actual production unit\n8/13 - Include the KDS, menuX and POS process (online) - with Ms Rosie and Fukawa-san\nNote: Sept 24 EHG team will be in PH\n8/26 - User's and functional testing",
+          "resources": [
+            "Lawrence",
+            "Mark",
+            "Von and EHG Japan",
+            "JTC"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_bq8b3d1",
+          "type": "task",
+          "parentId": "it_ejf363y",
+          "name": "Store Delivery",
+          "start": "2026-10-01",
+          "end": "2026-10-01",
+          "revisedEnd": "2026-09-10",
+          "status": "not-started",
+          "notes": "",
+          "resources": [
+            "genieX HW Team"
           ],
           "progress": 0
         }
