@@ -575,13 +575,13 @@
           "type": "milestone",
           "parentId": "",
           "name": "PROJECT INITIATION",
-          "start": "",
-          "end": "",
+          "start": "2026-06-23",
+          "end": "2026-08-14",
           "revisedEnd": "",
-          "status": "not-started",
+          "status": "completed",
           "notes": "",
           "resources": [],
-          "progress": 0
+          "progress": 100
         },
         {
           "id": "it_ejf363y",
@@ -620,6 +620,54 @@
           "status": "not-started",
           "notes": "",
           "resources": [],
+          "progress": 0
+        },
+        {
+          "id": "it_yrh44vo",
+          "type": "task",
+          "parentId": "it_70x94js",
+          "name": "Project Kick Off",
+          "start": "2026-06-23",
+          "end": "2026-06-23",
+          "revisedEnd": "",
+          "status": "completed",
+          "notes": "6/24 - Done in JTC office",
+          "resources": [
+            "Lawrence",
+            "Mark"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_k90arge",
+          "type": "task",
+          "parentId": "it_70x94js",
+          "name": "Business Process Review",
+          "start": "2026-07-02",
+          "end": "2026-07-02",
+          "revisedEnd": "2026-07-01",
+          "status": "completed",
+          "notes": "7/1 - Done, moved to July 1 due to client schedule conflict",
+          "resources": [
+            "Lawrence",
+            "Mark"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_mo99q0l",
+          "type": "task",
+          "parentId": "it_70x94js",
+          "name": "BPR Presentation and Sign Off",
+          "start": "2026-07-06",
+          "end": "2026-07-06",
+          "revisedEnd": "2026-08-14",
+          "status": "completed",
+          "notes": "7/10 - Sent the brd for sign off\n7/27 - With meeting July 29\n7/30 - Revised date but slide\n8/14 - Done",
+          "resources": [
+            "Lawrence",
+            "Mark"
+          ],
           "progress": 0
         }
       ],
