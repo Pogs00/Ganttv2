@@ -1,5 +1,5 @@
 {
-  "activeId": "proj_qomaazw",
+  "activeId": "proj_rgy3kj0",
   "projects": [
     {
       "id": "proj_bc9sc91",
@@ -724,7 +724,7 @@
           "end": "2026-07-17",
           "revisedEnd": "2026-08-07",
           "status": "in-progress",
-          "notes": "6/24 - 2 manpower\n7/24 - Done installation. No actual item yet\n7/27 - Item list must be provided before August 7. With review of list then proceed to setup in actual\n8/4 - Sent the partial items\n9/9 - Provided floor plan",
+          "notes": "6/24 - 2 manpower\n7/24 - Done installation. No actual item yet\n7/27 - Item list must be provided before August 7. With review of list then proceed to setup in actual\n8/4 - Sent the partial items\n9/9 - Provided floor plan, test KDS only 2 pending issues left",
           "resources": [
             "Lawrence"
           ],
