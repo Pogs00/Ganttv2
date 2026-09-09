@@ -1,5 +1,5 @@
 {
-  "activeId": "proj_rgy3kj0",
+  "activeId": "proj_qomaazw",
   "projects": [
     {
       "id": "proj_bc9sc91",
@@ -531,7 +531,7 @@
           "clientName": "Let's Eat",
           "details": "Digital Menu Board Installation",
           "poc": "Lawrence",
-          "dev": "Kent",
+          "dev": "Chas",
           "priority": "high",
           "status": "for-testing-h0e",
           "start": "2026-08-28",
