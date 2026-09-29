@@ -609,7 +609,7 @@
           "status": "in-progress",
           "notes": "",
           "resources": [],
-          "progress": 55
+          "progress": 64
         },
         {
           "id": "it_65hwgrv",
@@ -738,7 +738,7 @@
           "start": "2026-07-15",
           "end": "2026-07-17",
           "revisedEnd": "2026-08-07",
-          "status": "in-progress",
+          "status": "completed",
           "notes": "6/24 - 2 manpower\n7/24 - Done installation. No actual item yet\n7/27 - Item list must be provided before August 7. With review of list then proceed to setup in actual\n8/4 - Sent the partial items\n9/9 - M' Dina provided floor plan",
           "resources": [
             "Lawrence"
