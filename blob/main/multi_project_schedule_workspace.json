@@ -993,7 +993,13 @@
           "release1": "",
           "release2": "",
           "release3": "",
-          "remarks": []
+          "remarks": [
+            {
+              "id": "rem_j47hf3s",
+              "ts": "2026-09-29T01:08:08.793Z",
+              "text": "Waiting to complete Lets first to copy for TS"
+            }
+          ]
         }
       ]
     }
