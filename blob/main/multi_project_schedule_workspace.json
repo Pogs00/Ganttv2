@@ -832,8 +832,8 @@
           "start": "2026-09-24",
           "end": "2026-09-24",
           "revisedEnd": "",
-          "status": "not-started",
-          "notes": "",
+          "status": "in-progress",
+          "notes": "Pending:\n1. When ordering using 10 tablet, 1 tablet not syncing escalated to dev team already.\n2. Syncing speed for 1 table 6 sec, ideal is 3 to 4 sec escalated to dev team as well.",
           "resources": [
             "Lawrence",
             "Mark"
