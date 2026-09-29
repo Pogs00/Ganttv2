@@ -609,7 +609,7 @@
           "status": "in-progress",
           "notes": "",
           "resources": [],
-          "progress": 45
+          "progress": 55
         },
         {
           "id": "it_65hwgrv",
@@ -768,8 +768,8 @@
           "start": "2026-06-29",
           "end": "2026-08-28",
           "revisedEnd": "",
-          "status": "in-progress",
-          "notes": "",
+          "status": "completed",
+          "notes": "Pending:\n1. Syncing speed",
           "resources": [
             "Development Team"
           ],
