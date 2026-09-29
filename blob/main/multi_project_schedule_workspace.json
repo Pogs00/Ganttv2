@@ -959,12 +959,12 @@
           "poc": "Lawrence, Mark",
           "dev": "Von",
           "priority": "high",
-          "status": "in-progress",
+          "status": "for-testing-h0e",
           "start": "2026-06-29",
           "end": "2026-08-28",
           "revise": "2026-09-04",
-          "release1": "",
-          "release2": "",
+          "release1": "9/25/2026",
+          "release2": "9/28/2026",
           "release3": "",
           "remarks": [
             {
