@@ -609,7 +609,7 @@
           "status": "in-progress",
           "notes": "",
           "resources": [],
-          "progress": 64
+          "progress": 73
         },
         {
           "id": "it_65hwgrv",
@@ -801,7 +801,7 @@
           "start": "2026-10-01",
           "end": "2026-10-01",
           "revisedEnd": "2026-09-23",
-          "status": "not-started",
+          "status": "completed",
           "notes": "9/29 - Old revised end date is 9/10",
           "resources": [
             "genieX HW Team"
