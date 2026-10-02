@@ -1,11 +1,1012 @@
 {
-  "activeId": "proj_aav0zsi",
+  "activeId": "proj_qomaazw",
   "projects": [
     {
-      "id": "proj_aav0zsi",
-      "name": "Default Project",
-      "items": [],
-      "monitoring": []
+      "id": "proj_bc9sc91",
+      "name": "Aloha Standardization",
+      "items": [
+        {
+          "id": "it_6k1y48w",
+          "type": "milestone",
+          "parentId": "",
+          "name": "Week 1: New Customer Baseline",
+          "start": "2026-08-24",
+          "end": "2026-08-28",
+          "revisedEnd": "",
+          "status": "in-progress",
+          "notes": "",
+          "progress": 0,
+          "resources": []
+        },
+        {
+          "id": "it_puvulya",
+          "type": "milestone",
+          "parentId": "",
+          "name": "Week 2: Old Customer Baseline",
+          "start": "2026-08-31",
+          "end": "2026-09-04",
+          "revisedEnd": "",
+          "status": "in-progress",
+          "notes": "",
+          "progress": 0,
+          "resources": []
+        },
+        {
+          "id": "it_cnsu7xx",
+          "type": "task",
+          "parentId": "it_6k1y48w",
+          "name": "Determine the official target Aloha version, along with the exact approved plugin, reporting tools, and e-journal configuration",
+          "start": "2026-08-24",
+          "end": "2026-08-25",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "progress": 0,
+          "resources": [
+            "Jaymark"
+          ]
+        },
+        {
+          "id": "it_trlkgfd",
+          "type": "task",
+          "parentId": "it_6k1y48w",
+          "name": "Validate the new update against old fixes; coordinate directly with NCR if any required fixes are missing from the package.",
+          "start": "2026-08-26",
+          "end": "2026-08-26",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "progress": 0,
+          "resources": [
+            "Jaymark",
+            "Lawrence"
+          ]
+        },
+        {
+          "id": "it_rb1g72m",
+          "type": "task",
+          "parentId": "it_puvulya",
+          "name": "Determine the official target Aloha version, along with the exact approved plugin, reporting tools, and e-journal configuration",
+          "start": "2026-08-31",
+          "end": "2026-09-01",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "progress": 0,
+          "resources": [
+            "Jaymark"
+          ]
+        },
+        {
+          "id": "it_abg8m1g",
+          "type": "task",
+          "parentId": "it_puvulya",
+          "name": "Validate the new update against old fixes; coordinate directly with NCR if any required fixes are missing from the package.",
+          "start": "2026-09-02",
+          "end": "2026-09-02",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "progress": 0,
+          "resources": [
+            "Jaymark",
+            "Lawrence"
+          ]
+        },
+        {
+          "id": "it_tu8fkbq",
+          "type": "task",
+          "parentId": "it_puvulya",
+          "name": "Test the plugin end-to-end, specifically confirming the automated generation of e-journals on every transaction.",
+          "start": "2026-09-03",
+          "end": "2026-09-03",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "progress": 0,
+          "resources": [
+            "Jaymark"
+          ]
+        },
+        {
+          "id": "it_lnkzb3t",
+          "type": "task",
+          "parentId": "it_6k1y48w",
+          "name": "Test the plugin end-to-end, specifically confirming the automated generation of e-journals on every transaction.",
+          "start": "2026-08-27",
+          "end": "2026-08-27",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [
+            "Jaymark"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_itl3dkk",
+          "type": "task",
+          "parentId": "it_6k1y48w",
+          "name": "Establish this version as the mandatory blueprint moving forward for all incoming new clients.",
+          "start": "2026-08-28",
+          "end": "2026-08-28",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [
+            "Lawrence"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_1y05qlr",
+          "type": "task",
+          "parentId": "it_puvulya",
+          "name": "Establish this version as the mandatory blueprint moving forward for all existing new clients.",
+          "start": "2026-09-04",
+          "end": "2026-09-04",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [
+            "Lawrence"
+          ],
+          "progress": 0
+        }
+      ],
+      "monitoring": [
+        {
+          "id": "mon_aqeyzq2",
+          "clientName": "New Client",
+          "details": "Aloha V19.9 testing",
+          "poc": "Jay",
+          "dev": "",
+          "priority": "critical",
+          "status": "not-started",
+          "start": "2026-08-24",
+          "end": "2026-08-26",
+          "revise": "",
+          "release1": "",
+          "release2": "",
+          "release3": "",
+          "remarks": [
+            {
+              "id": "rem_c9n2r58",
+              "ts": "2026-08-26T07:17:15.807Z",
+              "text": "Testing not yet started"
+            }
+          ]
+        },
+        {
+          "id": "mon_cz3752e",
+          "clientName": "New Client",
+          "details": "V19 Plugin testing",
+          "poc": "Jay",
+          "dev": "",
+          "priority": "critical",
+          "status": "not-started",
+          "start": "2026-08-27",
+          "end": "2026-08-27",
+          "revise": "",
+          "release1": "",
+          "release2": "",
+          "release3": "",
+          "remarks": []
+        },
+        {
+          "id": "mon_1a7e2or",
+          "clientName": "New Client",
+          "details": "BIR Report Utility testing",
+          "poc": "Jay",
+          "dev": "",
+          "priority": "critical",
+          "status": "not-started",
+          "start": "2026-08-28",
+          "end": "2026-08-28",
+          "revise": "",
+          "release1": "",
+          "release2": "",
+          "release3": "",
+          "remarks": []
+        }
+      ]
+    },
+    {
+      "id": "proj_rgy3kj0",
+      "name": "Let's Eat Rockwell Pasig",
+      "items": [
+        {
+          "id": "it_14ypwla",
+          "type": "milestone",
+          "parentId": "",
+          "name": "PREPARATION, DEVELOPMENT AND TRAINING",
+          "start": "2026-06-05",
+          "end": "2026-09-17",
+          "revisedEnd": "",
+          "status": "in-progress",
+          "notes": "",
+          "resources": [],
+          "progress": 43
+        },
+        {
+          "id": "it_a5kt933",
+          "type": "milestone",
+          "parentId": "",
+          "name": "GO LIVE AND ROLLOUT",
+          "start": "2026-08-05",
+          "end": "2026-09-22",
+          "revisedEnd": "",
+          "status": "in-progress",
+          "notes": "",
+          "resources": [],
+          "progress": 0
+        },
+        {
+          "id": "it_xfecrt3",
+          "type": "milestone",
+          "parentId": "",
+          "name": "HANDOVER & SIGN-OFF",
+          "start": "2026-08-14",
+          "end": "2026-09-28",
+          "revisedEnd": "",
+          "status": "in-progress",
+          "notes": "",
+          "resources": [],
+          "progress": 0
+        },
+        {
+          "id": "it_101qk7a",
+          "type": "milestone",
+          "parentId": "",
+          "name": "PROJECT INITIATION",
+          "start": "2026-05-26",
+          "end": "2026-07-31",
+          "revisedEnd": "",
+          "status": "completed",
+          "notes": "",
+          "resources": [],
+          "progress": 100
+        },
+        {
+          "id": "it_9bogr6y",
+          "type": "task",
+          "parentId": "it_101qk7a",
+          "name": "Project Kick Off",
+          "start": "2026-05-26",
+          "end": "2026-05-26",
+          "revisedEnd": "",
+          "status": "completed",
+          "notes": "",
+          "resources": [
+            "All stakeholders"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_klpq43h",
+          "type": "task",
+          "parentId": "it_101qk7a",
+          "name": "Business Process Review",
+          "start": "2026-06-01",
+          "end": "2026-06-01",
+          "revisedEnd": "",
+          "status": "completed",
+          "notes": "",
+          "resources": [
+            "All stakeholders"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_3ngztyu",
+          "type": "task",
+          "parentId": "it_101qk7a",
+          "name": "BPR Presentation and Sign Off",
+          "start": "2026-06-03",
+          "end": "2026-06-03",
+          "revisedEnd": "2026-07-31",
+          "status": "completed",
+          "notes": "Moved due to pending details in BPR that need internal discussion of Let's team, waiting for client's preferred date\n08/03 - Sent the BRD for signatory\n08/25 - BRD approved and signed",
+          "resources": [
+            "All stakeholders"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_3sq0hx4",
+          "type": "task",
+          "parentId": "it_14ypwla",
+          "name": "BIR application",
+          "start": "2026-06-05",
+          "end": "2026-06-05",
+          "revisedEnd": "2026-07-21",
+          "status": "delayed",
+          "notes": "Unit will arrived with the owner on June 22\n- Waiting for COR\n08/28 - Let's attorney is coordinating with the BIR for this one\n09/02 - Waiting for BIR to finalize the transfer",
+          "resources": [
+            "Lawrence"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_p87ljrf",
+          "type": "task",
+          "parentId": "it_14ypwla",
+          "name": "NCR license activation",
+          "start": "2026-06-05",
+          "end": "2026-06-05",
+          "revisedEnd": "",
+          "status": "completed",
+          "notes": "Completed 8/25",
+          "resources": [
+            "Mitch"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_xgbexwn",
+          "type": "task",
+          "parentId": "it_14ypwla",
+          "name": "Preparation and setup of store hardware",
+          "start": "2026-07-15",
+          "end": "2026-07-15",
+          "revisedEnd": "2026-07-21",
+          "status": "completed",
+          "notes": "",
+          "resources": [
+            "Lawrence"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_ec87egk",
+          "type": "task",
+          "parentId": "it_14ypwla",
+          "name": "System designing and testing phase",
+          "start": "2026-07-16",
+          "end": "2026-07-17",
+          "revisedEnd": "2026-07-24",
+          "status": "completed",
+          "notes": "Pending menuX design and images\n08/28 - S' Rob approved the placeholder design\n09/02 - Marketing team still working with the assets\n09/07 - Completed the digital menu board installation - for testing\n09/09 - SOK now configured, ongoing testing encountered issue with syncing to POS c/o Kent",
+          "resources": [
+            "Lawrence",
+            "Kent"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_3rivcaf",
+          "type": "task",
+          "parentId": "it_14ypwla",
+          "name": "User acceptance testing (UAT)",
+          "start": "2026-07-27",
+          "end": "2026-07-27",
+          "revisedEnd": "2026-09-16",
+          "status": "delayed",
+          "notes": "For confirmation of the new timeline\n09/02 - Old revised date 08/13/2026",
+          "resources": [
+            "All stakeholders"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_unk2gfq",
+          "type": "task",
+          "parentId": "it_14ypwla",
+          "name": "Store delivery",
+          "start": "2026-07-30",
+          "end": "2026-07-30",
+          "revisedEnd": "2026-09-14",
+          "status": "delayed",
+          "notes": "For confirmation of the new timeline\n09/02 - Old revised date 08/28/2026",
+          "resources": [
+            "Lawrence",
+            "Hardware Team"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_0sm56yu",
+          "type": "task",
+          "parentId": "it_14ypwla",
+          "name": "User's Training (Preparation, HO and Store User)",
+          "start": "2026-08-03",
+          "end": "2026-08-03",
+          "revisedEnd": "2026-09-17",
+          "status": "delayed",
+          "notes": "For confirmation of the new timeline\n09/02 - Old revised date 08/31/2026",
+          "resources": [
+            "Lawrence",
+            "Store Manager",
+            "Store Cashier"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_bvf28br",
+          "type": "task",
+          "parentId": "it_a5kt933",
+          "name": "Store setup and simulation",
+          "start": "2026-08-05",
+          "end": "2026-08-05",
+          "revisedEnd": "2026-09-18",
+          "status": "delayed",
+          "notes": "For confirmation of the new timeline\n09/02 - Old revised date 09/01/2026",
+          "resources": [
+            "Lawrence"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_onbufwn",
+          "type": "task",
+          "parentId": "it_a5kt933",
+          "name": "Standby support",
+          "start": "2026-08-06",
+          "end": "2026-08-07",
+          "revisedEnd": "2026-09-22",
+          "status": "not-started",
+          "notes": "For confirmation of the new timeline\n09/02 - Old revised date 09/03/2026\n**Tentative 3rd week of September**",
+          "resources": [
+            "Lawrence"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_f617wjp",
+          "type": "task",
+          "parentId": "it_a5kt933",
+          "name": "Mall Interface Installation",
+          "start": "2026-08-06",
+          "end": "2026-08-06",
+          "revisedEnd": "2026-09-21",
+          "status": "not-started",
+          "notes": "For confirmation of the new timeline\n09/02 - Old revised date 09/03/2026",
+          "resources": [
+            "Lawrence",
+            "Mall Interface Team"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_q8e3xab",
+          "type": "task",
+          "parentId": "it_xfecrt3",
+          "name": "Documentations and Project Sign-off",
+          "start": "2026-08-14",
+          "end": "2026-08-14",
+          "revisedEnd": "2026-09-25",
+          "status": "not-started",
+          "notes": "09/02 - Old revised date 09/11/2026",
+          "resources": [
+            "Lawrence"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_1x6nisy",
+          "type": "task",
+          "parentId": "it_xfecrt3",
+          "name": "Handover to support",
+          "start": "2026-08-17",
+          "end": "2026-08-17",
+          "revisedEnd": "2026-09-28",
+          "status": "not-started",
+          "notes": "09/02 - Old revised date 09/14/2026",
+          "resources": [
+            "Lawrence"
+          ],
+          "progress": 0
+        }
+      ],
+      "monitoring": [
+        {
+          "id": "mon_q4rgh7p",
+          "clientName": "Let's Eat",
+          "details": "SOK Front End",
+          "poc": "Lawrence",
+          "dev": "Kent",
+          "priority": "high",
+          "status": "completed",
+          "start": "2026-08-28",
+          "end": "2026-09-04",
+          "revise": "2026-09-09",
+          "release1": "",
+          "release2": "",
+          "release3": "",
+          "remarks": [
+            {
+              "id": "rem_iumc5r5",
+              "ts": "2026-09-03T04:50:19.785Z",
+              "text": "Kent will start the configuration today"
+            },
+            {
+              "id": "rem_gegqf4f",
+              "ts": "2026-09-09T07:10:26.861Z",
+              "text": "SOK now working, but with issue with syncing to POS, checking c/o Kent"
+            }
+          ]
+        },
+        {
+          "id": "mon_mxne7cd",
+          "clientName": "Let's Eat",
+          "details": "Digital Menu Board Installation",
+          "poc": "Lawrence",
+          "dev": "Chas",
+          "priority": "high",
+          "status": "for-testing-h0e",
+          "start": "2026-08-28",
+          "end": "2026-09-04",
+          "revise": "2026-09-09",
+          "release1": "09/08/2026",
+          "release2": "",
+          "release3": "",
+          "remarks": [
+            {
+              "id": "rem_111v7th",
+              "ts": "2026-09-03T04:50:35.478Z",
+              "text": "Kent will start the installation today"
+            },
+            {
+              "id": "rem_3qj49bs",
+              "ts": "2026-09-07T23:14:28.546Z",
+              "text": "Completed yesterday"
+            },
+            {
+              "id": "rem_9ith42k",
+              "ts": "2026-09-09T07:12:43.128Z",
+              "text": "For testing today, but encounter issue can't access the CMS, escalate with Kent"
+            },
+            {
+              "id": "rem_ofxqgi9",
+              "ts": "2026-09-09T07:13:17.024Z",
+              "text": "Return to dev"
+            },
+            {
+              "id": "rem_h54ycal",
+              "ts": "2026-09-29T01:09:17.177Z",
+              "text": "For testing c/o Clarence"
+            }
+          ]
+        },
+        {
+          "id": "mon_1fndzvq",
+          "clientName": "Let's Eat",
+          "details": "BIR Report Utility",
+          "poc": "Lawrence",
+          "dev": "Nelson",
+          "priority": "high",
+          "status": "in-progress",
+          "start": "2026-09-08",
+          "end": "2026-09-11",
+          "revise": "",
+          "release1": "",
+          "release2": "",
+          "release3": "",
+          "remarks": []
+        }
+      ]
+    },
+    {
+      "id": "proj_qomaazw",
+      "name": "Torikizoku Serendra",
+      "items": [
+        {
+          "id": "it_70x94js",
+          "type": "milestone",
+          "parentId": "",
+          "name": "PROJECT INITIATION",
+          "start": "2026-06-23",
+          "end": "2026-08-14",
+          "revisedEnd": "",
+          "status": "completed",
+          "notes": "",
+          "resources": [],
+          "progress": 100
+        },
+        {
+          "id": "it_ejf363y",
+          "type": "milestone",
+          "parentId": "",
+          "name": "PREPARATION, DEVELOPMENT AND TRAINING",
+          "start": "2026-06-29",
+          "end": "2026-10-02",
+          "revisedEnd": "",
+          "status": "in-progress",
+          "notes": "",
+          "resources": [],
+          "progress": 73
+        },
+        {
+          "id": "it_65hwgrv",
+          "type": "milestone",
+          "parentId": "",
+          "name": "GO LIVE AND ROLLOUT",
+          "start": "2026-10-07",
+          "end": "2026-10-13",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [],
+          "progress": 0
+        },
+        {
+          "id": "it_m90w8zz",
+          "type": "milestone",
+          "parentId": "",
+          "name": "HANDOVER & SIGN-OFF",
+          "start": "2026-10-20",
+          "end": "2026-10-21",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [],
+          "progress": 0
+        },
+        {
+          "id": "it_yrh44vo",
+          "type": "task",
+          "parentId": "it_70x94js",
+          "name": "Project Kick Off",
+          "start": "2026-06-23",
+          "end": "2026-06-23",
+          "revisedEnd": "",
+          "status": "completed",
+          "notes": "6/24 - Done in JTC office",
+          "resources": [
+            "Lawrence",
+            "Mark"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_k90arge",
+          "type": "task",
+          "parentId": "it_70x94js",
+          "name": "Business Process Review",
+          "start": "2026-07-02",
+          "end": "2026-07-02",
+          "revisedEnd": "2026-07-01",
+          "status": "completed",
+          "notes": "7/1 - Done, moved to July 1 due to client schedule conflict",
+          "resources": [
+            "Lawrence",
+            "Mark"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_mo99q0l",
+          "type": "task",
+          "parentId": "it_70x94js",
+          "name": "BPR Presentation and Sign Off",
+          "start": "2026-07-06",
+          "end": "2026-07-06",
+          "revisedEnd": "2026-08-14",
+          "status": "completed",
+          "notes": "7/10 - Sent the brd for sign off\n7/27 - With meeting July 29\n7/30 - Revised date but slide\n8/14 - Done",
+          "resources": [
+            "Lawrence",
+            "Mark"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_tjbwbuo",
+          "type": "task",
+          "parentId": "it_ejf363y",
+          "name": "BIR application for the pilot stores",
+          "start": "2026-09-07",
+          "end": "2026-09-11",
+          "revisedEnd": "2026-09-12",
+          "status": "completed",
+          "notes": "7/06 - COR received, waiting for server details for application\n7/21 - Received the unit and POS. Can Apply\n8/4 - Approved the permit\nRegistered name : GOLDEN TORI VENTURES CORPORATION\nSerial no.:  085005260418031\nTin: 678-403-707-00001\nPermit no:  FP082026-044-0626639-00001\nMin no: 26080411190468367\nEffective Date: AUGUST 04, 2026",
+          "resources": [
+            "Lawrence"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_t6gavdb",
+          "type": "task",
+          "parentId": "it_ejf363y",
+          "name": "NCR Licence Activation",
+          "start": "2026-09-01",
+          "end": "2026-09-15",
+          "revisedEnd": "2026-09-12",
+          "status": "completed",
+          "notes": "7/6 - Order inprogress\n9/1 - Done",
+          "resources": [
+            "Lawrence"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_uqduh57",
+          "type": "task",
+          "parentId": "it_ejf363y",
+          "name": "Preparation of pilot store unit",
+          "start": "2026-07-15",
+          "end": "2026-07-15",
+          "revisedEnd": "",
+          "status": "completed",
+          "notes": "6/24 - Available\n7/21 - Received the unit and POS\n7/24 - Done installation on the actual unit",
+          "resources": [
+            "Lawrence"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_4wfqvb4",
+          "type": "task",
+          "parentId": "it_ejf363y",
+          "name": "System Designing and Testing Phase",
+          "start": "2026-07-15",
+          "end": "2026-07-17",
+          "revisedEnd": "2026-08-07",
+          "status": "completed",
+          "notes": "6/24 - 2 manpower\n7/24 - Done installation. No actual item yet\n7/27 - Item list must be provided before August 7. With review of list then proceed to setup in actual\n8/4 - Sent the partial items\n9/9 - M' Dina provided floor plan",
+          "resources": [
+            "Lawrence"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_k1uobez",
+          "type": "task",
+          "parentId": "it_ejf363y",
+          "name": "menuX® (Tablet and QR)",
+          "start": "2026-07-07",
+          "end": "2026-07-07",
+          "revisedEnd": "2026-08-07",
+          "status": "completed",
+          "notes": "8/15 - Done",
+          "resources": [
+            "Lawrence"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_gw9mvau",
+          "type": "task",
+          "parentId": "it_ejf363y",
+          "name": "Plugin Development and Testing (KDS Development)",
+          "start": "2026-06-29",
+          "end": "2026-08-28",
+          "revisedEnd": "",
+          "status": "completed",
+          "notes": "Pending:\n1. Syncing speed",
+          "resources": [
+            "Development Team"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_3aj9tf1",
+          "type": "task",
+          "parentId": "it_ejf363y",
+          "name": "User Acceptance Test/ Functional testing 1",
+          "start": "2026-08-25",
+          "end": "2026-08-27",
+          "revisedEnd": "",
+          "status": "completed",
+          "notes": "7/27 - To use the actual production unit\n8/13 - Include the KDS, menuX and POS process (online) - with Ms Rosie and Fukawa-san\nNote: Sept 24 EHG team will be in PH\n8/26 - User's and functional testing",
+          "resources": [
+            "Lawrence",
+            "Mark",
+            "Von and EHG Japan",
+            "JTC"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_bq8b3d1",
+          "type": "task",
+          "parentId": "it_ejf363y",
+          "name": "Store Delivery",
+          "start": "2026-10-01",
+          "end": "2026-10-01",
+          "revisedEnd": "2026-09-23",
+          "status": "completed",
+          "notes": "9/29 - Old revised end date is 9/10",
+          "resources": [
+            "genieX HW Team"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_hgrttsp",
+          "type": "task",
+          "parentId": "it_ejf363y",
+          "name": "User's Training (Preparation, HO and Store User)",
+          "start": "2026-10-02",
+          "end": "2026-10-02",
+          "revisedEnd": "2026-09-18",
+          "status": "delayed",
+          "notes": "",
+          "resources": [
+            "Lawrence",
+            "Mark"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_mou097h",
+          "type": "task",
+          "parentId": "it_ejf363y",
+          "name": "EHG Store Checking, setup for store full testing (KDS, Tablet and POS)",
+          "start": "2026-09-24",
+          "end": "2026-09-24",
+          "revisedEnd": "",
+          "status": "delayed",
+          "notes": "Pending:\n1. When ordering using 10 tablet, 1 tablet not syncing escalated to dev team already.\n2. Syncing speed for 1 table 6 sec, ideal is 3 to 4 sec escalated to dev team as well.",
+          "resources": [
+            "Lawrence",
+            "Mark"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_88d7jzz",
+          "type": "task",
+          "parentId": "it_ejf363y",
+          "name": "Sign Off UAT",
+          "start": "2026-10-02",
+          "end": "2026-10-02",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [
+            "Lawrence",
+            "Mark"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_bavizak",
+          "type": "task",
+          "parentId": "it_65hwgrv",
+          "name": "Store Setup and Simulation",
+          "start": "2026-10-07",
+          "end": "2026-10-07",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [
+            "Lawrence",
+            "Mark"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_uoif5hb",
+          "type": "task",
+          "parentId": "it_65hwgrv",
+          "name": "Stress Testing  (KDS, Tablet and POS)",
+          "start": "2026-10-08",
+          "end": "2026-10-09",
+          "revisedEnd": "2026-10-06",
+          "status": "not-started",
+          "notes": "",
+          "resources": [
+            "Lawrence",
+            "Mark"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_h152gq3",
+          "type": "task",
+          "parentId": "it_65hwgrv",
+          "name": "Standby Support",
+          "start": "2026-10-12",
+          "end": "2026-10-13",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [
+            "Lawrence"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_egfk2ac",
+          "type": "task",
+          "parentId": "it_65hwgrv",
+          "name": "Mall Interface Installation",
+          "start": "2026-10-13",
+          "end": "2026-10-13",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [
+            "Lawrence",
+            "Mall Tool Team"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_mu0qar1",
+          "type": "task",
+          "parentId": "it_m90w8zz",
+          "name": "Documentations and Project Sign-off",
+          "start": "2026-10-20",
+          "end": "2026-10-20",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [
+            "Lawrence",
+            "Mark"
+          ],
+          "progress": 0
+        },
+        {
+          "id": "it_weuhow2",
+          "type": "task",
+          "parentId": "it_m90w8zz",
+          "name": "Handover to support",
+          "start": "2026-10-21",
+          "end": "2026-10-21",
+          "revisedEnd": "",
+          "status": "not-started",
+          "notes": "",
+          "resources": [
+            "Lawrence"
+          ],
+          "progress": 0
+        }
+      ],
+      "monitoring": [
+        {
+          "id": "mon_dhzgukg",
+          "clientName": "Torikizoku Serendra",
+          "details": "Customize KDS",
+          "poc": "Lawrence, Mark",
+          "dev": "Von",
+          "priority": "high",
+          "status": "for-testing-h0e",
+          "start": "2026-06-29",
+          "end": "2026-08-28",
+          "revise": "2026-09-04",
+          "release1": "9/25/2026",
+          "release2": "9/28/2026",
+          "release3": "",
+          "remarks": [
+            {
+              "id": "rem_u1fpmk8",
+              "ts": "2026-09-08T00:31:52.674Z",
+              "text": "3 For testing and 4 Failed"
+            },
+            {
+              "id": "rem_dglsyqe",
+              "ts": "2026-09-09T07:14:27.699Z",
+              "text": "2 pending issues left"
+            }
+          ]
+        },
+        {
+          "id": "mon_6mgdwxp",
+          "clientName": "Torikizoku Serendra",
+          "details": "BIR Report Utility",
+          "poc": "Lawrence",
+          "dev": "Nelson",
+          "priority": "high",
+          "status": "not-started",
+          "start": "2026-09-08",
+          "end": "2026-09-11",
+          "revise": "2026-10-02",
+          "release1": "",
+          "release2": "",
+          "release3": "",
+          "remarks": [
+            {
+              "id": "rem_j47hf3s",
+              "ts": "2026-09-29T01:08:08.793Z",
+              "text": "Waiting to complete Lets first to copy for TS"
+            }
+          ]
+        }
+      ]
     }
   ],
   "statuses": [
@@ -28,6 +1029,16 @@
       "id": "delayed",
       "name": "Delayed",
       "color": "#D8564F"
+    },
+    {
+      "id": "for-testing-h0e",
+      "name": "For Testing",
+      "color": "#e49101"
+    },
+    {
+      "id": "on-hold-tyf",
+      "name": "On Hold",
+      "color": "#0d0d0d"
     }
   ]
 }
